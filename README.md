@@ -304,13 +304,13 @@ to full so the dimming PWM is off.
 
 ### Results so far
 - **COB Vf = 30 V** (first fixture). That fits the ≤ 32 V target.
-- **Current = 1.2 A per channel** at 100 %, so ~36 W per color and ~72 W
-  with both on. The "100 W" rating is optimistic, which is good news for heat.
-- **Yellow and black are soldered together on one tab.** That is a **shared
-  (common) terminal**, so the COB has 3 connections: common, blue, green. On
-  this driver it is almost certainly **common positive (common anode)**.
-  To confirm: power on, black probe on the PSU **G** terminal, red probe on the
-  yellow/black tab. ~36 V means common +. Blue and green will read lower.
+- **Current:** 1.2 A on one channel. The clamp around the common + wires
+  (yellow + black) read **2.75 A total with both colors at 100 %**. So it's
+  roughly **1.2–1.55 A per channel (~1.4 A average)**, about **83 W of LED
+  power** in total (30 V × 2.75 A), and roughly 55–60 W of heat. Confirm the
+  split by clamping blue alone and green alone with both colors at 100 %.
+- **Yellow + black are soldered together on one tab: the common positive
+  (confirmed).** The COB is **common anode**: common +, blue, green.
 - **Both color halves have black spots** (burned dies), so every COB gets
   replaced, not just the ones with a dead color.
 - **Old paste covered only part of the COB base** and had dried and crumbled.
