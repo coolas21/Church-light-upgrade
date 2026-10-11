@@ -3,11 +3,11 @@
 Quantities are for **25 fixtures plus 2 spares (27)**. Prices are rough (late 2026)
 and are for budgeting only.
 
-> **Buy a test batch first** (1 COB pack, 2 fans, 2 controllers). Rebuild one
+> **Buy a test batch first** (2 COBs, 2 fans, 2 controllers, 1 frost sheet). Rebuild one
 > or two fixtures, run them at 100 % for an hour, and check fit, current and
 > temperature before ordering the rest.
 
-## Still to measure before ordering
+## Measurements
 - [x] Fan: **NMB 3110KL-04W-B75, 80 × 80 × 25 mm, 12 V** ball bearing.
       Sibling models in this series run ~3,250–4,000 rpm and ~39–46 CFM,
       which is why it's loud.
@@ -15,7 +15,8 @@ and are for budgeting only.
 - [x] COB current per channel: 1.4 A each (blue, green)
 - [ ] **Wall amps for one fixture** at 100 % both colors (watt meter), then have an electrician confirm the circuits behind the wall switch can carry 25 × that (see README "Power")
 - [x] COB: **Vf 30 V; blue 1.4 A + green 1.4 A (~42 W per color, ~84 W total)**; yellow + black joined = **common + (confirmed common anode)**; both halves have burned spots, so replace all
-- [ ] Mounting height and beam angle (for the coverage model)
+- [x] Mounting height ~18 ft; yokes pivot and tilt
+- [ ] Beam angle (optional, only to fine-tune aiming)
 - [x] Lens 140 mm; front brackets 8.5 in apart, 3.5 in long, 2 holes 62 mm apart each (for the frost frame)
 
 ## Per-fixture rebuild parts
