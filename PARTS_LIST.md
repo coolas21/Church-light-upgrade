@@ -68,8 +68,6 @@ spares go to the dark areas.
 |---|---|
 | Hanging hardware to match existing mounts (clamp/yoke) | 5 |
 | Safety cables (rated, one per fixture) | 5 (plus check the existing 25) |
-| DMX cable to extend the run | as measured |
-| DMX terminator (120 Ω) at the end of each chain | 1–2 |
 | Power to each new position | **have an electrician run it** |
 
 ## Only if needed (inspect first)
