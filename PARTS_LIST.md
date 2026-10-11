@@ -39,6 +39,16 @@ Rough rebuild total: **about $1,000–1,800 plus the COBs**, depending on the fa
 | Canned air / soft brush | Clean heatsink fins and vents | 2–3 cans |
 | Labels | Mark each fixture's DMX address and rebuild date | 1 sheet |
 
+## DMX
+
+| Item | Spec | Qty |
+|---|---|---|
+| Opto-isolated DMX splitter, 3+ outputs | at the booth | 1 |
+| DMX cable, 110–120 Ω (Belden 9841 or DMX-rated) | bulk + XLR connectors, or pre-made | ~800 ft |
+| 3-pin XLR male + female connectors (if bulk cable) | Neutrik NC3MXX / NC3FXX | ~70 of each |
+| 120 Ω DMX terminator, 3-pin XLR | end of each run | 3 (+1 spare) |
+| Cable ties / J-hooks | support runs along the ceiling structure | as needed |
+
 ## Tools (one set)
 
 | Tool | Why |

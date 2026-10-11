@@ -79,7 +79,7 @@ def stats(E, mask):
     return v.min(), np.percentile(v, 10), (v < 0.5).mean()
 
 
-def plot(ax, E, mask, fixtures, added, title):
+def plot(ax, X, Y, E, mask, fixtures, added, title):
     rel = np.where(mask, E / E[mask].mean(), np.nan)
     im = ax.pcolormesh(Y, X, rel, cmap="inferno", vmin=0, vmax=1.8,
                        shading="auto")
@@ -124,7 +124,7 @@ if __name__ == "__main__":
     for ax, E, add, name in [(axes[0], E0, [], "Current"),
                              (axes[1], E1, added, f"+{n_add} relocated")]:
         v = E[mask] / norm
-        im = plot(ax, E * E0[mask].mean() / norm, mask, FIXTURES, add,
+        im = plot(ax, X, Y, E * E0[mask].mean() / norm, mask, FIXTURES, add,
                   f"{name}: H={height:g} ft, beam={beam:g}°\n"
                   f"min {v.min():.2f}, darkest-10% {np.percentile(v, 10):.2f}, "
                   f"{(v < 0.5).mean():.0%} of seating < half avg")

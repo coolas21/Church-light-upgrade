@@ -223,6 +223,58 @@ real numbers: `python3 tools/coverage.py <height_ft> <beam_deg>`.
 
 Full shopping list: `PARTS_LIST.md`.
 
+## Aiming (tools/aiming.py)
+
+With all 30 hung (25 existing + 5 spares), the model's best result comes
+from one simple rule:
+
+- **Tilt every house fixture 15–20° away from the room's center line,**
+  sideways or toward the rear, **never toward the stage** (that glares the
+  platform). Leave the two center-line fixtures at (8, 0) and (16, 0), the
+  stage fixtures, and the 5 relocated spares pointing straight down.
+- At 24 ft / 60°, the seating below half of today's average drops from
+  14 % (spares added, all straight down) to **3 %**. At 18 ft / 40° it drops
+  from 26 % to 15 %.
+- Map with arrows: `docs/aiming_H24_B60.png`, `docs/aiming_H18_B40.png`.
+
+How to aim in the field:
+1. Aim offset on the floor = height × tan(tilt): at 24 ft, 18° is about 8 ft.
+   Mark the aim point on a seat and point the beam center at it.
+2. Aim with only that fixture on, both colors full, at night or with the house
+   dark. Use a phone-camera snapshot to find the hot spot.
+3. Lock the yoke bolts firmly and fit a safety cable on every fixture.
+4. Check glare from the back row and the platform. If a lens is in someone's
+   line of sight, back that fixture off 5°.
+
+## DMX wiring (tools/dmx_route.py)
+
+**Recommended: an opto-isolated DMX splitter at the booth with three home
+runs** (left / center + stage / right, 9–12 fixtures each).
+
+| | Option 1: splitter at booth | Option 2: splitter in ceiling |
+|---|---|---|
+| Cable (22 ft ceiling, incl. slack) | ~680 ft (~780 with spare) | ~660 ft (~750 with spare) |
+| Power in ceiling | No | Yes, for the splitter |
+| Troubleshooting | All at the booth | Need a lift |
+
+The cable is about the same either way, so keep the electronics at the booth.
+
+Rules:
+- **Daisy-chain only** (OUT of one fixture to IN of the next). Never Y-split
+  a cable; splitting is what the splitter's outputs are for.
+- **Use 110–120 Ω DMX cable** (e.g. Belden 9841 or a DMX/AES-rated cable),
+  not mic cable. Mic cable causes flicker and dropouts on long runs.
+- **Terminate** the last fixture of each run with a 120 Ω XLR terminator.
+- Each run stays well under the 32-device and ~1,000 ft limits. The board's
+  SN75176B is a standard one-unit-load receiver.
+- **Run DMX at least a foot away from power,** and cross power at right angles.
+- Label both ends of every cable, and tag each fixture with its address.
+
+Addressing: 30 × 6 ch = 180 channels, so one universe. Give fixtures **in the
+same zone the same start address** so the console sees a few zones instead of
+30 fixtures. For example: front house, rear house, left side, right side,
+stage. Fixtures sharing an address simply mirror each other.
+
 ## Info still needed
 
 - Fan size and voltage label (read the sticker)
