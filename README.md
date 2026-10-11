@@ -124,10 +124,39 @@ This changes some choices above:
   - Moving one or two repaired spare fixtures to the dead areas usually helps
     more than any diffuser.
 
+## Room layout notes (from sanctuary photos)
+
+- The house fixtures hang from a high, dark, open-truss ceiling in a roughly
+  rectangular grid. The seating fans out in wedges around a curved stage, so
+  the **outer wedges, side walls and rear corners** fall outside the grid.
+  Those areas are the likely dead spots.
+- From the booth the fixtures don't all match: some look bright and cool,
+  others dimmer or warmer. That fits fixtures with one dead half. Once
+  repaired, run **every fixture at the same warm/cool mix** so the room looks
+  even (and on camera, if streamed).
+- The dark ceiling reflects almost nothing, so all useful light must come
+  straight down out of the fixtures.
+
+### Fixing the dead spots
+1. **Map it.** During a service-level look, take readings at seat height on a
+   grid (every ~3rd row, aisle and wall seats included). A phone lux-meter app
+   is fine for *relative* comparison. Mark anything well below the center.
+2. **Repair every fixture first,** then re-measure. Many dark areas may simply
+   be under a one-color fixture.
+3. **Re-aim the outer row** of fixtures outward toward the side wedges and
+   rear corners, rather than straight down.
+4. **Check the beam overlap.** Beam diameter at the seats is about
+   `2 × height × tan(beam angle ÷ 2)`. If that is smaller than the fixture
+   spacing, there will be dark gaps between the pools of light. A light frost
+   fixes that by widening every beam a little.
+5. **Add fixtures where the grid doesn't reach.** Repaired spares hung over
+   the outer wedges beat any diffuser.
+
 ## Info still needed
 
 - Fan size and voltage label (read the sticker)
 - Which color is dead on each unit, and results of the swap test
 - COB dimensions and forward voltage per half
+- Ceiling mounting height, fixture spacing, and whether the yokes tilt
 - Typical service level (if they run ~50–70 %, the temp-controlled fan will be
   near-silent almost all the time)
