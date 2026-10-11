@@ -1,0 +1,100 @@
+# Church 100 W Bi-Color COB Light – Quiet & Reliability Upgrade
+
+Plan for ~30 no-name 100 W warm-white / daylight COB fixtures (6-ch DMX) that
+have loud fans and dead warm or cool channels.
+
+## What's in the fixture (from photos)
+
+| Part | Marking | What it does |
+|---|---|---|
+| Power supply | RS-200W-36V-12V | **V1 = 12 V / 1 A** (logic + fan), **V2 = 36 V / 5.2 A** (LED power) |
+| Main board | XF-THL-1-6080-20110820 | Generic RGBW driver board; only **B** and **G** channels populated (used for the two COB colors) |
+| MCU | STC 608AD-5V (8051) | Reads DMX, runs the menu, makes PWM |
+| DMX receiver | SN75176B | RS-485 / DMX input |
+| 5 V regulator | LM2576S-5.0 + SS36 | Makes 5 V logic from 12 V |
+| LED drivers | D-PAK MOSFET + 220 µH inductor + **R130 (0.13 Ω)** sense resistor + LM358 | Constant-current buck driver, one per color |
+| Display board | XF-XHL-1-7645 (16-pin) | Address / mode menu |
+| LED | 100 W two-color COB (cool + warm halves) | Several dark/burnt spots visible on the die |
+| Fan | 2-wire, wired straight to 12 V | Runs full speed all the time → noise |
+
+Heat budget: a 100 W COB turns roughly 60–70 W into heat at full output. That
+heat has to leave through the heatsink. **Fully passive (no fan) is not
+realistic in this housing** — it would need a heatsink several times larger.
+The practical goal is a fan you can't hear at normal levels, and a thermal
+path good enough that the COB stays cool.
+
+## Why channels are dying
+
+The burnt spots on the COB are the classic result of years of running hot
+(dried-out thermal paste, dusty fins, a tired fan). Possible failure points,
+most likely first:
+
+1. **COB half is dead** (most likely, given the visible burnt dies)
+2. Driver channel on the main board (MOSFET, sense resistor, or diode)
+3. Wiring / connector between board and COB
+
+### 5-minute diagnosis per fixture
+
+1. **Swap test:** at the board's output connector, swap the warm pair with the
+   cool pair. If the dead color *moves*, the board is bad. If the *same* half
+   stays dark, the COB is bad.
+2. **Direct test:** feed each COB half from a current-limited bench supply
+   (start ~30 V, limit 300 mA, raise slowly). Note the forward voltage at
+   ~1 A — you need it to order the right replacement COB.
+
+## The fix (per fixture)
+
+### 1. Rebuild the thermal path (biggest reliability gain, nearly free)
+- Remove COB, clean off the old paste, apply fresh compound
+  (Arctic MX-4 / Noctua NT-H1 or similar), torque screws evenly.
+- Blow dust out of the heatsink fins and housing vents.
+- Replace the COB if a half is dead (see parts list).
+
+### 2. Quiet fan + temperature control
+- Replace the stock fan with a quality fluid-dynamic-bearing **4-pin PWM** fan
+  of the same size (measure it — looks like 80 or 92 mm × 25 mm).
+- Add a small **12 V PWM fan temperature controller** with an NTC probe;
+  stick the probe to the heatsink right under the COB with thermal epoxy or
+  Kapton tape. The fan idles almost silent when the light is dimmed and only
+  ramps up when it really needs to.
+- Power stays on the PSU 12 V output (V1 = 1 A is plenty for logic + one fan).
+- Set the controller so the fan is at ~30–40 % below ~40 °C heatsink and 100 %
+  by ~55 °C. Never let it stop completely while the LED is on.
+
+### 3. (Optional) Take 10–15 % off the maximum current
+LEDs last far longer and run much cooler slightly below rating, and the eye
+barely notices a 10–15 % drop. On this board the LED current is set by the
+**R130 (0.13 Ω)** sense resistor: replacing it with **R150 (0.15 Ω)** cuts
+current ~13 %. Do this on one test unit first and measure the current before
+and after — only commit after confirming it behaves.
+
+### 4. Health checks while it's open
+- Look for bulging/leaking electrolytic capacitors on both boards (board is
+  dated 2011, PSU 2016). Replace any suspect ones with 105 °C low-ESR parts.
+- Reflow any cracked solder joints on the XLR and connector boards.
+
+### 5. Validate (do on the first 1–2 units before doing all 30)
+- Both channels at 100 % for 60 minutes in its normal hanging orientation.
+- Measure the heatsink next to the COB: **target < 60 °C**; COB case
+  **< 80 °C**. If over, raise the controller's fan curve or do step 3.
+- Listen at the audience distance at normal service levels.
+
+## Parts list (per fixture, rough prices)
+
+| Item | Example | ~Cost |
+|---|---|---|
+| PWM fan, same size | Arctic P8 / P9 PWM, Noctua NF-A8 / NF-A9 PWM (quietest) | $8–$22 |
+| PWM temp controller w/ NTC | "12 V 4-wire PWM fan temperature controller" module | $3–$8 |
+| Thermal compound | Arctic MX-4 (one 20 g tube does all 30) | ~$1 |
+| Replacement COB (if needed) | 100 W bi-color (≈3000 K + 6000 K), 2-channel, matching size & voltage | $8–$20 |
+| Sense resistor (optional) | 0.15 Ω 2512 1 W | <$1 |
+
+Roughly **$15–$50 per fixture**, vs ~$150–$300 each for a new quiet fixture.
+
+## Info still needed
+
+- Fan size and voltage label (read the sticker)
+- Which color is dead on each unit, and results of the swap test
+- COB dimensions and forward voltage per half
+- Typical service level (if they run ~50–70 %, the temp-controlled fan will be
+  near-silent almost all the time)
