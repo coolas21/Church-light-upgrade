@@ -12,6 +12,7 @@ and are for budgeting only.
 - [ ] Fan thickness (normally 25 mm)
 - [ ] Old COB outline and screw-hole spacing (new COB is 46 × 40 mm)
 - [ ] Mounting height and beam angle (for the coverage model)
+- [ ] Front lens / bezel diameter, and whether there is a gel-frame slot (for frost)
 
 ## Per-fixture rebuild parts
 
@@ -25,6 +26,23 @@ and are for budgeting only.
 | 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to 46 × 40 mm | enough for 32 | — | ~$40–60 |
 
 Rough rebuild total: **about $1,000–1,800 plus the COBs**, depending on the fan choice.
+
+## Front diffusion (light frost, ~10–15 % loss): all fixtures
+
+| Item | Spec / example | Qty |
+|---|---|---|
+| Light frost filter | **Lee 410 Opal Frost** (lightest; aim for ~10–15 % loss) or Rosco 114 Hamburg Frost (a bit softer, a bit more loss). Use the polyester/heat-rated version, not craft-store film | **1 roll (48 in × 25 ft)**: ~160 circles up to 9 in, or ~8 sheets (21 × 24 in) at 4 per sheet |
+| Gel frame to fit the fixture's front slot, if it has one | measure slot width × height | 32 |
+| Otherwise: cut to fit **inside the front bezel** against the glass, held by the retaining ring | no tape on the lens | — |
+| Circle cutter or template + sharp knife | clean, identical cuts | 1 |
+
+Notes:
+- Keep the frost **on the front glass, not near the COB**. LED fixtures run
+  cool enough at the front for standard theatrical filter.
+- Buy one sheet first. Check the loss with the lux app on one fixture before
+  cutting all 30.
+- Frost softens and widens every beam by roughly 10–15°. Re-check the aiming
+  after it's fitted, since you may need slightly less tilt.
 
 ## Install supplies
 
@@ -76,4 +94,3 @@ spares go to the dark areas.
 |---|---|
 | 105 °C low-ESR electrolytic capacitors (match µF / V) | Any bulging or leaking caps on the PSU or driver board |
 | 0.15 Ω 2512 1 W resistor (R150) | Only if you choose to lower the LED current. Costs ~8–10 % of the light |
-| Light frost: Rosco 114 or Lee 410 + gel frames | Only on fixtures that still leave gaps after re-aiming and relocating |
