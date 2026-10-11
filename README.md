@@ -9,7 +9,7 @@ details and the reasoning. Shopping list: `PARTS_LIST.md`.
 
 | Area | Decision |
 |---|---|
-| COB | Replace all 25 (both halves have burned dies). Drop-in **40 × 40 mm, 34 × 34 mm M3 holes, ~20 mm LES**, bi-color, **common anode**, CRI ≥ 90, **Vf 28–32 V at 1.4 A**, rated **≥ 1.8 A per color**. Test 2 before ordering. |
+| COB | Replace all 25 (both halves have burned dies). Drop-in **40 × 40 mm, 34 × 34 mm M3 holes, ~20 mm LES**, bi-color, **common anode**, CRI ≥ 90, **Vf 28–32 V at 1.4 A**, rated **≥ 1.8 A per color**. A 200 W / 3 A-per-color COB is a good choice if it fits (see "200 W COB option"). The light output stays the same, but it runs cooler and lasts longer. Test 2 before ordering. |
 | Measured | 30 V, blue 1.4 A + green 1.4 A, so ~84 W of LED power per fixture |
 | Paste | Arctic MX-6 / Noctua NT-H2 (or PTM7950 pad), **full-coverage thin layer**, check the print on the first one |
 | Fan | **Noctua NF-A8 PWM** (80 × 25 mm) + 12 V PWM temp controller. Step up to NF-A8 iPPC-3000 if the heatsink goes over 60 °C after 1 h at 100 %. |
@@ -391,6 +391,45 @@ Addressing: 25 × 6 ch = 150 channels, so one universe. Give fixtures **in the
 same zone the same start address** so the console sees a few zones instead of
 25 fixtures. For example: front house, rear house, left side, right side,
 stage. Fixtures sharing an address simply mirror each other.
+
+## 200 W COB option (3 A per color)
+
+**The driver board, not the COB, sets the current.** The R130 sense
+resistors hold each color at ~1.4 A no matter what COB is fitted.
+
+### Option 1: 200 W COB on the stock driver (recommended if it fits)
+- Still ~1.4 A per color, ~84 W. **Same power, same heat, same amps at the
+  wall.** No electrical changes.
+- The COB runs at ~47 % of its rating. Each LED die runs cooler and a bit
+  more efficiently, so expect **~10–15 % more light** and a **much longer
+  life**. It's the most reliable choice for 100 % every service.
+- Must still meet the drop-in spec: **40 × 40 mm, 34 × 34 mm holes, common
+  anode**, and **Vf ≤ ~32 V per color at 1.4 A**. Avoid 200 W COBs built as
+  60 V+ strings. This board's 36 V supply can't drive them, and they'll be
+  dim or won't light.
+- A 200 W COB often has a **larger light area** (≈ 28–30 mm). It still
+  works, but the beam is a little wider and softer (fine with frost). Check
+  it sits correctly under the reflector opening.
+
+### Option 2: run it at a full 3 A per color (~200 W): **no**
+| | Stock | 3 A per color |
+|---|---|---|
+| LED current | 2.8 A | 6 A: **over the PSU's 5.2 A rating** |
+| LED power / heat | ~84 W / ~55–60 W | ~190 W / ~130 W: more than double; heatsink and NF-A8 can't cope |
+| Driver | designed for ~1.4 A | MOSFETs, inductors and sense resistors not rated for it |
+| Wall power (25 fixtures) | ~2,600 W, 22–34 A | **~5,500 W, ~46–70 A**: 4–5 circuits |
+
+It would mean a new power supply, a new driver, a bigger heatsink, a louder
+fan and new circuits. At that point, new fixtures are the better buy.
+
+### Option 3: modest boost (only if more light is still needed)
+Change the two R130 (0.13 Ω) resistors to **R110 (0.11 Ω)**: ~1.65 A per
+color, ~+18 % current, ~+15 % light, ~100 W LED / ~120 W at the wall per
+fixture (25 ≈ 3,000 W). Within the PSU rating, but heat rises ~20 %, so
+expect the NF-A8 iPPC-3000 fan. **Try on one fixture**: measure the current
+and the heatsink temperature after an hour, and check the driver MOSFETs
+aren't too hot to touch, before doing more. Only worth it with a 200 W-rated
+COB.
 
 ## Measurements (before ordering COBs)
 

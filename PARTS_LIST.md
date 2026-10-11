@@ -23,7 +23,7 @@ and are for budgeting only.
 
 | # | Item | Spec / example | Qty | ~Each | ~Total |
 |---|---|---|---|---|---|
-| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, **Vf 28–32 V per channel at ~1.4 A**, rated **≥ 1.8 A (≈ 55–60 W) per channel** so it runs at ~75–80 % of rating. Wiring: **common-anode 3-pad**, or 4 independent pads (join the two + pads). **Not common-cathode** | 27 | $10–25 | ~$270–675 |
+| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, **Vf 28–32 V per channel at ~1.4 A**, rated **≥ 1.8 A (≈ 55–60 W) per channel** so it runs at ~75–80 % of rating. Wiring: **common-anode 3-pad**, or 4 independent pads (join the two + pads). **Not common-cathode**. **Preferred: a 200 W / 3 A-per-color COB meeting the same size, wiring and Vf spec**: same power on this driver, cooler, longer life, ~10–15 % more light. Avoid 60 V-class 200 W COBs | 27 | $10–35 | ~$270–950 |
 | 1b | COB LED, *alternative* | YUJILEDS 400H (CRI 95+, 3200/5600 K) is 46 × 40 mm with a larger light area. Needs new holes drilled and tapped in the heatsink, and must clear the reflector opening. Only if no good 40 × 40 part turns up | 14 packs | check site | — |
 | 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 27 | $20–23 | ~$600 |
 | 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 27 | ~$25 | ~$675 |
@@ -104,3 +104,4 @@ Not needed to start. See README "Do we need more fixtures?" and "Power".
 |---|---|
 | 105 °C low-ESR electrolytic capacitors (match µF / V) | Any bulging or leaking caps on the PSU or driver board |
 | 0.15 Ω 2512 1 W resistor (R150) | Only if you choose to lower the LED current. Costs ~8–10 % of the light |
+| 0.11 Ω 2512 1 W resistor (R110), 2 per fixture | Only for the optional ~+15 % boost with 200 W COBs (README "200 W COB option"). Test one fixture first |
