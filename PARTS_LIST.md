@@ -13,7 +13,7 @@ and are for budgeting only.
       which is why it's loud.
 - [x] COB: **40 × 40 mm base, 34 × 34 mm screw holes, 21 × 21 mm light area**
 - [ ] COB current per channel at 100 % (see README: R130, DC clamp, or wall watt meter)
-- [x] COB: 4 tabs, two separate channels; Vf measured 30 V on one fixture
+- [x] COB: **Vf 30 V, 1.2 A per channel** (~36 W per color); yellow + black joined = **common terminal (likely common +)**; both halves have burned spots, so replace all
 - [ ] Mounting height and beam angle (for the coverage model)
 - [ ] Front lens / bezel diameter, and whether there is a gel-frame slot (for frost)
 
@@ -21,7 +21,7 @@ and are for budgeting only.
 
 | # | Item | Spec / example | Qty | ~Each | ~Total |
 |---|---|---|---|---|---|
-| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, per-channel Vf ≤ ~32 V at the measured current, same pad layout as the original | 32 | $10–25 | — |
+| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, **Vf 28–32 V per channel at 1.2 A**, rated **≥ 1.5 A (≈ 50 W) per channel** so it runs at ~80 % of rating. Wiring: **common-anode 3-pad**, or 4 independent pads (join the two + pads). **Not common-cathode** | 32 | $10–25 | — |
 | 1b | COB LED, *alternative* | YUJILEDS 400H (CRI 95+, 3200/5600 K) is 46 × 40 mm with a larger light area. Needs new holes drilled and tapped in the heatsink, and must clear the reflector opening. Only if no good 40 × 40 part turns up | 16 packs | check site | — |
 | 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 32 | $20–23 | ~$700 |
 | 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 32 | ~$25 | ~$800 |

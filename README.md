@@ -292,7 +292,7 @@ voltage: probe only the low-voltage output terminals and the driver board.
 | 3 | **Across each COB channel** (its + and − at the board's output connector or the COB pads) | That channel at 100 % | **Forward voltage (Vf)**, the number to match when buying | ~28–33 V |
 | 4 | **Across each R130 resistor** (B and G channels) | That channel at 100 % | Current: **I = V ÷ 0.13** (e.g. 0.20 V → 1.5 A) | ~0.15–0.25 V |
 | 5 | Same as 3 and 4 | Both channels 100 % together | Check that the current doesn't drop when both run | same as alone |
-| 6 | Count the COB pads and read the +/− marks | Power off | 4 pads = separate channels, 3 = shared + | — |
+| 6 | Count the COB pads and read the +/− marks | Power off | 3 connections (one shared) = common terminal; 4 independent = separate | — |
 
 From these, buy a COB whose **Vf per channel at that current is ≤ ~32 V**
 (the 36 V supply needs headroom) and whose **rated current is ≥ the measured
@@ -304,8 +304,15 @@ to full so the dimming PWM is off.
 
 ### Results so far
 - **COB Vf = 30 V** (first fixture). That fits the ≤ 32 V target.
-- **4 solder tabs, wired in pairs** (blue/green and yellow/black), so the two
-  colors are **separate channels** with no shared positive.
+- **Current = 1.2 A per channel** at 100 %, so ~36 W per color and ~72 W
+  with both on. The "100 W" rating is optimistic, which is good news for heat.
+- **Yellow and black are soldered together on one tab.** That is a **shared
+  (common) terminal**, so the COB has 3 connections: common, blue, green. On
+  this driver it is almost certainly **common positive (common anode)**.
+  To confirm: power on, black probe on the PSU **G** terminal, red probe on the
+  yellow/black tab. ~36 V means common +. Blue and green will read lower.
+- **Both color halves have black spots** (burned dies), so every COB gets
+  replaced, not just the ones with a dead color.
 - **Old paste covered only part of the COB base** and had dried and crumbled.
   The edges of the base were barely touching the plate. This is the main
   reason the COBs overheated and burned out dies.
