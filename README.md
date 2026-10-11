@@ -152,6 +152,51 @@ This changes some choices above:
 5. **Add fixtures where the grid doesn't reach.** Repaired spares hung over
    the outer wedges beat any diffuser.
 
+## Recommended parts (rebuild of all fixtures)
+
+### COB: YUJILEDS 400H, 100 W bi-color, 3200 K / 5600 K, CRI 95+
+- 46 × 40 mm module (the common 100 W footprint, so likely a drop-in. Measure
+  the old COB and its screw holes before ordering).
+- Forward voltage 28–33 V. That is good for this board's 36 V supply,
+  because the buck driver needs a few volts of headroom.
+- Sold in packs of two. **Order one pack first:** check fit, check that both
+  channels light from the board, measure current per channel, and confirm it
+  stays below the COB rating.
+- 3200 K / 5600 K gives a far better color mix (and on-camera look) than the
+  no-name originals.
+- Source: https://store.yujiintl.com/products/yujileds-cri-95-100w-cob-led-3200k-5600k-400h
+
+### Fan: 4-pin PWM, same size as the original
+| Size | Quiet pick | Budget pick |
+|---|---|---|
+| 80 mm | Noctua NF-A8 PWM (2200 rpm, 17.7 dB(A) max, 2.37 mm H2O) | Arctic P8 PWM PST |
+| 92 mm | Noctua NF-A9 PWM (2000 rpm) | Arctic P9-class PWM |
+
+Use the anti-vibration mounts that come with the fan. Because these run at
+100 %, test the first unit: if the heatsink goes past ~60 °C with a Noctua at
+full speed, step up to a higher-airflow model.
+
+### Temperature controller
+- A 12 V "4-wire PWM fan temperature controller" module with a 10 k NTC probe
+  and an adjustable start temperature. It must drive the fan's **PWM pin**
+  (25 kHz), not chop the 12 V supply.
+- Power it from the PSU's V1 (12 V). Fix the probe to the heatsink next to the
+  COB with Kapton tape or thermal epoxy.
+- Set ~35 °C = slow, ~55 °C = full. Choose a module whose minimum speed is
+  not zero.
+
+### Thermal interface
+- **Arctic MX-6** or **Noctua NT-H2** paste: non-curing, non-conductive, and
+  resists pump-out. Each COB needs ~0.3–0.5 g, so ~15 g covers 30 fixtures.
+  Buy 2 × 8 g or one 20 g tube.
+- Upgrade option: **Honeywell PTM7950** phase-change pad cut to the COB size.
+  It never dries out or pumps out, which suits fixtures running hot for hours.
+  It needs one full-power warm-up to flow.
+- Avoid thick silicone pads, liquid metal and electrically conductive pastes.
+- Method: clean both surfaces with 99 % isopropyl, apply a thin even layer,
+  tighten the screws a little at a time, alternating sides, and don't
+  over-tighten.
+
 ## Info still needed
 
 - Fan size and voltage label (read the sticker)
