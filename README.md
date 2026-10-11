@@ -1,7 +1,23 @@
 # Church 100 W Bi-Color COB Light – Quiet & Reliability Upgrade
 
 Plan for 25 no-name 100 W warm-white / daylight COB fixtures (6-ch DMX) that
-have loud fans and dead warm or cool channels.
+have loud fans and dead warm or cool channels. This file grew as answers came
+in; **the summary below is the current plan**. Later sections hold the
+details and the reasoning. Shopping list: `PARTS_LIST.md`.
+
+## Plan at a glance
+
+| Area | Decision |
+|---|---|
+| COB | Replace all 25 (both halves have burned dies). Drop-in **40 × 40 mm, 34 × 34 mm M3 holes, ~20 mm LES**, bi-color, **common anode**, CRI ≥ 90, **Vf 28–32 V at 1.4 A**, rated **≥ 1.8 A per color**. Test 2 before ordering. |
+| Measured | 30 V, blue 1.4 A + green 1.4 A, so ~84 W of LED power per fixture |
+| Paste | Arctic MX-6 / Noctua NT-H2 (or PTM7950 pad), **full-coverage thin layer**, check the print on the first one |
+| Fan | **Noctua NF-A8 PWM** (80 × 25 mm) + 12 V PWM temp controller. Step up to NF-A8 iPPC-3000 if the heatsink goes over 60 °C after 1 h at 100 %. |
+| Frost | **Lee 410 Opal Frost** (~10–15 % loss) in a 2-plate frame on the front brackets (145 mm hole, holes 62 mm apart) |
+| Aiming | 18 ft mounting: tilt house fixtures **~20–25° outward, never toward the stage**; center line and stage stay straight down |
+| More fixtures | Not to start. Re-check with a lux app after phase 1. If needed, add 2–4 on a **new circuit**. |
+| Power | ~100–105 W and ~0.9–1.4 A per fixture at 120 V, so **25 ≈ 22–34 A**, more than one 20 A circuit. **Measure one fixture with a watt meter**, and have an electrician confirm the circuits behind the switch before all 25 run at full again. |
+| DMX | **One daisy chain** (25 < 32 devices, ~475 ft) with a **120 Ω terminator** at the end. If keeping your two runs, terminate both, and never Y-split. |
 
 ## What's in the fixture (from photos)
 
@@ -46,13 +62,13 @@ most likely first:
 
 ### 1. Rebuild the thermal path (biggest reliability gain, nearly free)
 - Remove COB, clean off the old paste, apply fresh compound
-  (Arctic MX-4 / Noctua NT-H1 or similar), torque screws evenly.
+  (Arctic MX-6 / Noctua NT-H2), thin full-coverage layer, torque screws evenly.
 - Blow dust out of the heatsink fins and housing vents.
-- Replace the COB if a half is dead (see parts list).
+- Replace the COB (all of them: both halves have burned dies).
 
 ### 2. Quiet fan + temperature control
 - Replace the stock fan with a quality fluid-dynamic-bearing **4-pin PWM** fan
-  of the same size (measure it — looks like 80 or 92 mm × 25 mm).
+  of the same size: **80 × 80 × 25 mm** (stock is an NMB 3110KL-04W-B75).
 - Add a small **12 V PWM fan temperature controller** with an NTC probe;
   stick the probe to the heatsink right under the COB with thermal epoxy or
   Kapton tape. The fan idles almost silent when the light is dimmed and only
@@ -79,17 +95,9 @@ and after — only commit after confirming it behaves.
   **< 80 °C**. If over, raise the controller's fan curve or do step 3.
 - Listen at the audience distance at normal service levels.
 
-## Parts list (per fixture, rough prices)
+## Parts list
 
-| Item | Example | ~Cost |
-|---|---|---|
-| PWM fan, same size | Arctic P8 / P9 PWM, Noctua NF-A8 / NF-A9 PWM (quietest) | $8–$22 |
-| PWM temp controller w/ NTC | "12 V 4-wire PWM fan temperature controller" module | $3–$8 |
-| Thermal compound | Arctic MX-4 (one 20 g tube does all 25) | ~$1 |
-| Replacement COB (if needed) | 100 W bi-color (≈3000 K + 6000 K), 2-channel, matching size & voltage | $8–$20 |
-| Sense resistor (optional) | 0.15 Ω 2512 1 W | <$1 |
-
-Roughly **$15–$50 per fixture**, vs ~$150–$300 each for a new quiet fixture.
+See **`PARTS_LIST.md`** for the current list, quantities and costs.
 
 ## Update: fixtures run at 100 % all the time (house / audience light)
 
@@ -154,23 +162,21 @@ This changes some choices above:
 
 ## Recommended parts (rebuild of all fixtures)
 
-### COB: YUJILEDS 400H, 100 W bi-color, 3200 K / 5600 K, CRI 95+
-- 46 × 40 mm module (the common 100 W footprint, so likely a drop-in. Measure
-  the old COB and its screw holes before ordering).
-- Forward voltage 28–33 V. That is good for this board's 36 V supply,
-  because the buck driver needs a few volts of headroom.
-- Sold in packs of two. **Order one pack first:** check fit, check that both
-  channels light from the board, measure current per channel, and confirm it
-  stays below the COB rating.
-- 3200 K / 5600 K gives a far better color mix (and on-camera look) than the
-  no-name originals.
-- Source: https://store.yujiintl.com/products/yujileds-cri-95-100w-cob-led-3200k-5600k-400h
+### COB
+Drop-in spec (from the measurements below): **40 × 40 mm base, 34 × 34 mm M3
+holes, ~20 × 20 mm LES**, bi-color (≈3000–3200 K + 5600–6000 K), CRI ≥ 90,
+**common anode** (or 4 pads with the two + joined), **Vf 28–32 V per color at
+1.4 A**, rated **≥ 1.8 A per color**. Get the seller to confirm the hole
+spacing, wiring and Vf in writing, and test 2 before ordering the rest.
+
+The YUJILEDS 400H (46 × 40 mm, CRI 95+) is **not** a drop-in. It's only a
+fallback if new holes are drilled and tapped and it clears the reflector.
 
 ### Fan: 4-pin PWM, same size as the original
 | Size | Quiet pick | Budget pick |
 |---|---|---|
-| 80 mm | Noctua NF-A8 PWM (2200 rpm, 17.7 dB(A) max, 2.37 mm H2O) | Arctic P8 PWM PST |
-| 92 mm | Noctua NF-A9 PWM (2000 rpm) | Arctic P9-class PWM |
+| 80 mm (confirmed) | Noctua NF-A8 PWM (2200 rpm, 17.7 dB(A) max, 2.37 mm H2O) | Arctic P8 PWM PST |
+| If too hot | Noctua NF-A8 industrialPPC-3000 PWM (about the stock airflow) | — |
 
 Use the anti-vibration mounts that come with the fan. Because these run at
 100 %, test the first unit: if the heatsink goes past ~60 °C with a Noctua at
