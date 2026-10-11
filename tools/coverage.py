@@ -30,7 +30,7 @@ FIXTURES = [
     (-7, -15), (-7, -5), (-7, 5), (-7, 15),
 ]
 
-# Suggested positions for the ~5 spare fixtures (30 owned - 25 hung)
+# Suggested positions if fixtures are added (only 25 are owned/hung)
 SUGGESTED = [(8, -36), (8, 36), (-16, -30), (-16, 30), (-24, 0)]
 
 ROOM = [(41, -23), (41, 23), (30, 23), (13, 42.5), (-15, 42.5), (-28, 19),

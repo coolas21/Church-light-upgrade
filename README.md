@@ -1,6 +1,6 @@
 # Church 100 W Bi-Color COB Light – Quiet & Reliability Upgrade
 
-Plan for ~30 no-name 100 W warm-white / daylight COB fixtures (6-ch DMX) that
+Plan for 25 no-name 100 W warm-white / daylight COB fixtures (6-ch DMX) that
 have loud fans and dead warm or cool channels.
 
 ## What's in the fixture (from photos)
@@ -73,7 +73,7 @@ and after — only commit after confirming it behaves.
   dated 2011, PSU 2016). Replace any suspect ones with 105 °C low-ESR parts.
 - Reflow any cracked solder joints on the XLR and connector boards.
 
-### 5. Validate (do on the first 1–2 units before doing all 30)
+### 5. Validate (do on the first 1–2 units before doing all 25)
 - Both channels at 100 % for 60 minutes in its normal hanging orientation.
 - Measure the heatsink next to the COB: **target < 60 °C**; COB case
   **< 80 °C**. If over, raise the controller's fan curve or do step 3.
@@ -85,7 +85,7 @@ and after — only commit after confirming it behaves.
 |---|---|---|
 | PWM fan, same size | Arctic P8 / P9 PWM, Noctua NF-A8 / NF-A9 PWM (quietest) | $8–$22 |
 | PWM temp controller w/ NTC | "12 V 4-wire PWM fan temperature controller" module | $3–$8 |
-| Thermal compound | Arctic MX-4 (one 20 g tube does all 30) | ~$1 |
+| Thermal compound | Arctic MX-4 (one 20 g tube does all 25) | ~$1 |
 | Replacement COB (if needed) | 100 W bi-color (≈3000 K + 6000 K), 2-channel, matching size & voltage | $8–$20 |
 | Sense resistor (optional) | 0.15 Ω 2512 1 W | <$1 |
 
@@ -121,8 +121,8 @@ This changes some choices above:
     10–20 % loss, softens hot spots and widens the beam.
   - Heavy diffusion (Lee 216 full white class): loses 50 %+, so avoid it.
   - Mount gel/diffusion in a gel frame at the front, not against the COB.
-  - Moving one or two repaired spare fixtures to the dead areas usually helps
-    more than any diffuser.
+  - Adding a fixture or two over the dead areas usually helps more than any
+    diffuser (see "Do we need more fixtures?").
 
 ## Room layout notes (from sanctuary photos)
 
@@ -149,8 +149,8 @@ This changes some choices above:
    `2 × height × tan(beam angle ÷ 2)`. If that is smaller than the fixture
    spacing, there will be dark gaps between the pools of light. A light frost
    fixes that by widening every beam a little.
-5. **Add fixtures where the grid doesn't reach.** Repaired spares hung over
-   the outer wedges beat any diffuser.
+5. **Add fixtures where the grid doesn't reach** (optional, see "Do we need
+   more fixtures?"). Fixtures hung over the outer wedges beat any diffuser.
 
 ## Recommended parts (rebuild of all fixtures)
 
@@ -187,7 +187,7 @@ full speed, step up to a higher-airflow model.
 
 ### Thermal interface
 - **Arctic MX-6** or **Noctua NT-H2** paste: non-curing, non-conductive, and
-  resists pump-out. Each COB needs ~0.3–0.5 g, so ~15 g covers 30 fixtures.
+  resists pump-out. Each COB needs ~0.3–0.5 g, so ~15 g covers 25 fixtures.
   Buy 2 × 8 g or one 20 g tube.
 - Upgrade option: **Honeywell PTM7950** phase-change pad cut to the COB size.
   It never dries out or pumps out, which suits fixtures running hot for hours.
@@ -213,9 +213,9 @@ Beam angle isn't measured, so it was run at 45° (bare) and 60° (with frost):
   reach those bands.
 - The front-center seats get well above the average (the stage-front row at
   X = 24 also spills there). Side walls and rear corners get 10–30 %.
-- Moving the ~5 spare fixtures to **(X, Y) = (8, ±36), (−16, ±30), (−24, 0)**
-  cuts the seating below half the average from **43 % to 21 %** (60°), or
-  from 47 % to 27 % (45°).
+- *If* 5 fixtures were added at **(X, Y) = (8, ±36), (−16, ±30), (−24, 0)**,
+  the seating below half the average would drop from **43 % to 21 %** (60°),
+  or from 47 % to 27 % (45°), all pointing straight down.
 
 See `docs/coverage_H15.5_B60.png` and `docs/coverage_H15.5_B45.png`. Re-run:
 `python3 tools/coverage.py <height_above_seats_ft> <beam_deg>`.
@@ -224,18 +224,19 @@ Full shopping list: `PARTS_LIST.md`.
 
 ## Aiming (tools/aiming.py)
 
-With all 30 hung (25 existing + 5 spares), the model's best result comes
-from one simple rule:
+The model's best result for the **25 hung fixtures** comes from one rule:
 
 - **Tilt every house fixture ~20–25° away from the room's center line,**
   sideways or toward the rear, **never toward the stage** (that glares the
-  platform). Leave the two center-line fixtures at (8, 0) and (16, 0), the
-  stage fixtures, and the 5 relocated spares pointing straight down.
-- With frost (60°): seating below half of today's average drops from 21 %
-  (spares added, all straight down) to **10 %**. Without frost (45°) it drops
-  from 27 % to 13 %. Going past 25° only gains a little more (9 % at 30°) and
-  raises glare, so 25° is the limit.
-- Map with arrows: `docs/aiming_H15.5_B60.png` (`_B45` for no frost).
+  platform). Leave the two center-line fixtures at (8, 0) and (16, 0) and the
+  stage fixtures pointing straight down.
+- With frost (60°): seating below half of today's average drops from
+  **43 % to 28 %**. Without frost (45°): 47 % → 29 %. Going past 25° gains
+  little and raises glare.
+- What's left dark is the outer ~8–10 ft along each side wall and the rear
+  ~10 ft. Only added fixtures fix that (see below).
+- Map with arrows: `docs/aiming_H15.5_B60_25.png`. With 5 added fixtures:
+  `docs/aiming_H15.5_B60.png` (10 % below half).
 
 | Fixture (X, Y) | Aim beam center at (X, Y) |
 |---|---|
@@ -263,19 +264,73 @@ How to aim in the field:
 5. Fit the frost frames **after** aiming, then do a quick lux-app walk of the
    seating to confirm.
 
+## Do we need more fixtures?
+
+**Not to start.** Do the 25 first: repair (new COBs restore both colors),
+aim, frost, then walk the room with the lux app.
+
+| Setup (60° with frost) | Seating below half of avg |
+|---|---|
+| 25, straight down | 43 % |
+| **25, aimed** | **28 %** |
+| 30 (5 added), straight down | 21 % |
+| 30 (5 added), aimed | 10 % |
+
+- "Average" here assumes every fixture has both colors working. Today many
+  have a dead half, so the **real improvement from the repairs is bigger**
+  than this table shows.
+- Moving center fixtures out to the edges doesn't help with only 25: it just
+  makes a dark hole in the middle of the seating.
+- If the edges are still too dark after phase 1, add **2–4 fixtures** at
+  the rear corners (−16, ±30) first, then the side walls (8, ±36). Put them on
+  a separate circuit (see Power).
+
+## Power (one wall switch)
+
+Per fixture, measured: LED 30 V × 2.8 A ≈ **84 W**. Add the fan and logic
+(~4 W) and power-supply losses (~85 % efficient), and it's about **100–105 W
+from the wall**. At 120 V that's **~0.9 A each**. If the supply has poor power
+factor (common on cheap units), it could be up to ~1.4 A each.
+
+| | Watts | Amps @ 120 V (good PF → poor PF) | 20 A circuits needed* |
+|---|---|---|---|
+| 25 fixtures | ~2,600 W | **~22 A → 34 A** | 2 (3 if poor PF) |
+| 30 fixtures | ~3,100 W | **~26 A → 41 A** | 2–3 |
+| Each extra fixture | ~105 W | ~0.9–1.4 A | — |
+
+\* A 20 A breaker should carry **≤ 16 A continuous** (80 % rule for loads
+running 3+ hours). That's ~15 fixtures per 20 A circuit, or ~10 with poor PF.
+
+What this means:
+- **25 fixtures can't be on a single 20 A circuit.** They are already on 2+
+  circuits, or a 208/240 V circuit (halve the amps), or the wall switch drives
+  a relay or contactor. Have an electrician confirm what the switch actually
+  controls.
+- **Watch out after the repair:** today many fixtures run only one color, so
+  they draw roughly half power. Once every fixture has both colors back at
+  100 %, the load goes **up**, and a circuit that's fine today could trip.
+- **Measure one fixture first:** plug it into a watt meter (Kill-A-Watt) at
+  100 % both colors and read the amps directly. Multiply by 25.
+- **Inrush:** switching 25 power supplies on at once with one wall switch
+  causes a big current spike. It can trip breakers or wear out the switch.
+  If that happens, an electrician can add a contactor, or split the load
+  across two switches.
+- Adding fixtures means **adding a circuit**, not just plugging into the
+  existing run.
+
 ## DMX wiring (tools/dmx_route.py)
 
 ### One chain or split?
 
-**One chain through all 30 is fine here** and uses the least cable:
+**One chain through all 25 is fine here** and uses the least cable:
 
-- 30 fixtures is under the **32-device limit** for one DMX line. That only
+- 25 fixtures is well under the **32-device limit** for one DMX line. That only
   holds if nothing else (stage pars, hazer, etc.) shares the line. Count
   everything on it.
 - The XLR in/out board on the back of each fixture is **passive** (traces
   straight from IN to OUT). A fixture that's off or failed still passes
   data. Only a bad cable or connector breaks the chain after that point.
-- Length: ~400 ft along the ceiling plus drops and slack is about **600 ft**,
+- Length: ~305 ft along the ceiling plus drops and slack is about **475 ft**,
   well under the ~1,000 ft limit.
 
 **When splitting is worth it:** if a cable fault going dark mid-service
@@ -295,19 +350,18 @@ would be a real problem, or you add more fixtures to the line. A cheap
 
 ### Single-chain order (`docs/dmx_single_chain.png`)
 
-From the booth: rear-center spare → right side → right-center → stage →
-down the middle → left side → **finish at stage-left (34, −12) with the
-terminator**. The order (X, Y):
+From the booth: center-rear → right side → stage → down the middle → left
+side → **finish at the left rear (−3, −24) with the terminator**. The order
+(X, Y):
 
-(−24,0) → (−16,30) → (8,36) → (6,25) → (−3,24) → (−7,15) → (−7,5) → (0,9.5)
-→ (3,17) → (13,17) → (11,9.5) → (24,12) → (34,12) → (32,0) → (24,0) → (16,0)
-→ (8,0) → (0,0) → (0,−9.5) → (−7,−5) → (−7,−15) → (−16,−30) → (8,−36)
-→ (6,−25) → (−3,−24) → (3,−17) → (13,−17) → (11,−9.5) → (24,−12)
-→ **(34,−12) T**
+(−7,5) → (0,9.5) → (−7,15) → (−3,24) → (6,25) → (3,17) → (13,17) → (11,9.5)
+→ (34,12) → (24,12) → (24,−12) → (34,−12) → (32,0) → (24,0) → (16,0) → (8,0)
+→ (0,0) → (−7,−5) → (−7,−15) → (0,−9.5) → (11,−9.5) → (13,−17) → (3,−17)
+→ (6,−25) → **(−3,−24) T**
 
 If you keep two runs, split this order where it's convenient, for example
 right half + stage on one and middle + left on the other, and terminate both
-ends. A three-run split for a splitter is in `docs/dmx_runs.png`.
+ends. (`docs/dmx_runs.png` shows a three-run split, drawn for 30 fixtures.)
 
 At each fixture:
 - Leave a **service loop** big enough for full pan and tilt. Tie it to the yoke
@@ -327,9 +381,9 @@ Rules:
 - **Run DMX at least a foot away from power,** and cross power at right angles.
 - Label both ends of every cable, and tag each fixture with its address.
 
-Addressing: 30 × 6 ch = 180 channels, so one universe. Give fixtures **in the
+Addressing: 25 × 6 ch = 150 channels, so one universe. Give fixtures **in the
 same zone the same start address** so the console sees a few zones instead of
-30 fixtures. For example: front house, rear house, left side, right side,
+25 fixtures. For example: front house, rear house, left side, right side,
 stage. Fixtures sharing an address simply mirror each other.
 
 ## Measurements (before ordering COBs)

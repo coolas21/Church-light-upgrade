@@ -1,6 +1,6 @@
-# Parts List – 30-Fixture Rebuild
+# Parts List – 25-Fixture Rebuild
 
-Quantities are for **30 fixtures plus spares**. Prices are rough (late 2026)
+Quantities are for **25 fixtures plus 2 spares (27)**. Prices are rough (late 2026)
 and are for budgeting only.
 
 > **Buy a test batch first** (1 COB pack, 2 fans, 2 controllers). Rebuild one
@@ -12,7 +12,8 @@ and are for budgeting only.
       Sibling models in this series run ~3,250–4,000 rpm and ~39–46 CFM,
       which is why it's loud.
 - [x] COB: **40 × 40 mm base, 34 × 34 mm screw holes, 21 × 21 mm light area**
-- [ ] COB current per channel at 100 % (see README: R130, DC clamp, or wall watt meter)
+- [x] COB current per channel: 1.4 A each (blue, green)
+- [ ] **Wall amps for one fixture** at 100 % both colors (watt meter), then have an electrician confirm the circuits behind the wall switch can carry 25 × that (see README "Power")
 - [x] COB: **Vf 30 V; blue 1.4 A + green 1.4 A (~42 W per color, ~84 W total)**; yellow + black joined = **common + (confirmed common anode)**; both halves have burned spots, so replace all
 - [ ] Mounting height and beam angle (for the coverage model)
 - [x] Lens 140 mm; front brackets 8.5 in apart, 3.5 in long, 2 holes 62 mm apart each (for the frost frame)
@@ -21,24 +22,24 @@ and are for budgeting only.
 
 | # | Item | Spec / example | Qty | ~Each | ~Total |
 |---|---|---|---|---|---|
-| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, **Vf 28–32 V per channel at ~1.4 A**, rated **≥ 1.8 A (≈ 55–60 W) per channel** so it runs at ~75–80 % of rating. Wiring: **common-anode 3-pad**, or 4 independent pads (join the two + pads). **Not common-cathode** | 32 | $10–25 | — |
-| 1b | COB LED, *alternative* | YUJILEDS 400H (CRI 95+, 3200/5600 K) is 46 × 40 mm with a larger light area. Needs new holes drilled and tapped in the heatsink, and must clear the reflector opening. Only if no good 40 × 40 part turns up | 16 packs | check site | — |
-| 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 32 | $20–23 | ~$700 |
-| 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 32 | ~$25 | ~$800 |
-| 2c | Fan (budget) | Arctic P8 PWM PST (80 mm) | 32 | $8–10 | ~$300 |
-| 3 | Fan temp controller | 12 V 4-wire PWM fan controller, 10 k NTC probe, adjustable start temp, non-zero minimum speed | 32 | $4–8 | ~$200 |
+| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, **Vf 28–32 V per channel at ~1.4 A**, rated **≥ 1.8 A (≈ 55–60 W) per channel** so it runs at ~75–80 % of rating. Wiring: **common-anode 3-pad**, or 4 independent pads (join the two + pads). **Not common-cathode** | 27 | $10–25 | ~$270–675 |
+| 1b | COB LED, *alternative* | YUJILEDS 400H (CRI 95+, 3200/5600 K) is 46 × 40 mm with a larger light area. Needs new holes drilled and tapped in the heatsink, and must clear the reflector opening. Only if no good 40 × 40 part turns up | 14 packs | check site | — |
+| 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 27 | $20–23 | ~$600 |
+| 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 27 | ~$25 | ~$675 |
+| 2c | Fan (budget) | Arctic P8 PWM PST (80 mm) | 27 | $8–10 | ~$250 |
+| 3 | Fan temp controller | 12 V 4-wire PWM fan controller, 10 k NTC probe, adjustable start temp, non-zero minimum speed | 27 | $4–8 | ~$160 |
 | 4 | Thermal paste | Arctic MX-6 or Noctua NT-H2 (~0.5 g per COB) | 20 g total | — | ~$20 |
-| 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to ~40 × 40 mm | enough for 32 | — | ~$40–60 |
+| 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to ~40 × 40 mm | enough for 27 | — | ~$40–60 |
 
-Rough rebuild total: **about $1,000–1,800 plus the COBs**, depending on the fan choice.
+Rough rebuild total: **about $700–1,500 including COBs** (fan choice and COB price drive it), plus frost and frames.
 
 ## Front diffusion (light frost, ~10–15 % loss): all fixtures
 
 | Item | Spec / example | Qty |
 |---|---|---|
-| Light frost filter | **Lee 410 Opal Frost** (lightest; aim for ~10–15 % loss) or Rosco 114 Hamburg Frost (a bit softer, a bit more loss). Use the polyester/heat-rated version, not craft-store film | **6.5 × 6.5 in per fixture**: **4 sheets (21 × 24 in)** at 9 per sheet = 36 pieces, or 1 roll (48 in × 25 ft) for years of replacements |
-| Frost frame plates | 0.040 in aluminum (or 1/16 in black ABS), ~9.5 × 7 in, 145 mm center hole, 2 holes per side 62 mm apart (see README "Frost frame") | 64 (2 per fixture) |
-| Frame screws / nuts | to suit the front-bracket threads | ~130 |
+| Light frost filter | **Lee 410 Opal Frost** (lightest; aim for ~10–15 % loss) or Rosco 114 Hamburg Frost (a bit softer, a bit more loss). Use the polyester/heat-rated version, not craft-store film | **6.5 × 6.5 in per fixture**: **3 sheets (21 × 24 in)** at 9 per sheet = 27 pieces, or 1 roll (48 in × 25 ft) for years of replacements |
+| Frost frame plates | 0.040 in aluminum (or 1/16 in black ABS), ~9.5 × 7 in, 145 mm center hole, 2 holes per side 62 mm apart (see README "Frost frame") | 50 (2 per fixture) + 2 spare |
+| Frame screws / nuts | to suit the front-bracket threads | ~110 |
 | Flat-black paint | if using aluminum plates | 1–2 cans |
 | Circle cutter or template + sharp knife | clean, identical cuts | 1 |
 
@@ -46,7 +47,7 @@ Notes:
 - Keep the frost **on the front glass, not near the COB**. LED fixtures run
   cool enough at the front for standard theatrical filter.
 - Buy one sheet first. Check the loss with the lux app on one fixture before
-  cutting all 30.
+  cutting all 25.
 - Frost softens and widens every beam by roughly 10–15°. Re-check the aiming
   after it's fitted, since you may need slightly less tilt.
 
@@ -83,18 +84,18 @@ Notes:
 | Soldering iron, flux, solder wick | COB leads, connector repairs, caps if needed |
 | Phone lux-meter app | Before/after light map of the seating |
 | DC clamp meter (optional, e.g. UNI-T UT210E) | Easiest way to read LED current |
-| Plug-in watt meter (optional) | Rough LED power check at the wall |
+| **Plug-in watt meter (Kill-A-Watt type)** | Measure one fixture's real wall amps before the repaired fixtures go back on the circuit |
 
-## Relocating the ~5 spare fixtures (see coverage map)
+## Optional phase 2: adding fixtures (only if edges are still dark)
 
-Your plan shows 25 hung fixtures, and you own about 30. Once repaired, the
-spares go to the dark areas.
+Not needed to start. See README "Do we need more fixtures?" and "Power".
 
 | Item | Qty |
 |---|---|
-| Hanging hardware to match existing mounts (clamp/yoke) | 5 |
-| Safety cables (rated, one per fixture) | 5 (plus check the existing 25) |
-| Power to each new position | **have an electrician run it** |
+| Additional fixtures (same type, or a modern quiet bi-color par) | 2–4 |
+| Hanging hardware to match existing mounts (clamp/yoke) | per fixture |
+| Safety cables (rated, one per fixture) | per fixture (plus check the existing 25) |
+| **New circuit** for the added fixtures (~1–1.4 A each) | **electrician** |
 
 ## Only if needed (inspect first)
 

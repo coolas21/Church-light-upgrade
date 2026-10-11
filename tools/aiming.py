@@ -6,7 +6,7 @@ the platform). The script tries offsets and keeps whichever lifts the darkest
 10 % of seats most, while the middle of the room must keep >= 85 % of its
 straight-down level. Tilt is capped at MAX_TILT to limit glare.
 
-Usage: python3 tools/aiming.py [height_ft] [beam_deg]
+Usage: python3 tools/aiming.py [height_ft] [beam_deg] [--no-spares]
 """
 import math
 import sys
@@ -22,6 +22,7 @@ CENTRE = (2, 0)          # roughly the middle of the seating
 OFFSETS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
 MAX_TILT = 25            # degrees from straight down
 STAGE_X = 20             # fixtures at/over the stage are left alone
+NO_SPARES = "--no-spares" in sys.argv
 
 
 def lit(fx, fy, ax, ay, X, Y, height, m):
@@ -41,15 +42,16 @@ def aim_point(f, off):
 
 
 def main():
-    height = float(sys.argv[1]) if len(sys.argv) > 1 else 15.5
-    beam = float(sys.argv[2]) if len(sys.argv) > 2 else 50
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    height = float(args[0]) if args else 15.5
+    beam = float(args[1]) if len(args) > 1 else 50
     m = math.log(0.5) / math.log(math.cos(math.radians(beam / 2)))
 
     xs, ys = np.arange(-29, 42, 0.5), np.arange(-44, 44.5, 0.5)
     Y, X = np.meshgrid(ys, xs)
     mask = c.seating_mask(X, Y)
 
-    fixtures = c.FIXTURES + c.SUGGESTED
+    fixtures = c.FIXTURES + ([] if NO_SPARES else c.SUGGESTED)
     offs = [0] * len(fixtures)
     contrib = [lit(*f, *f, X, Y, height, m) for f in fixtures]
     total = sum(contrib)
@@ -79,7 +81,7 @@ def main():
             offs[i], contrib[i] = best[1], best[2]
 
     end = total[mask] / norm
-    print(f"H={height} beam={beam} (all 30 hung, relative to today's average)")
+    print(f"H={height} beam={beam} ({len(fixtures)} hung, relative to today's average)")
     print(f"  straight down : p10={np.percentile(start, 10):.2f} "
           f"below-half={(start < 0.5).mean():.0%}")
     print(f"  with aiming   : p10={np.percentile(end, 10):.2f} "
@@ -96,15 +98,17 @@ def main():
 
     fig, ax = plt.subplots(figsize=(7, 6.5))
     im = c.plot(ax, X, Y, total * c.illuminance(c.FIXTURES, X, Y, height, beam)[mask].mean()
-                / norm, mask, c.FIXTURES, c.SUGGESTED,
-                f"All 30 hung + aimed: H={height:g} ft, beam={beam:g}°\n"
+                / norm, mask, [f for f in fixtures if f not in c.SUGGESTED],
+                [] if NO_SPARES else c.SUGGESTED,
+                f"{len(fixtures)} hung + aimed: H={height:g} ft, beam={beam:g}°\n"
                 f"darkest-10% {np.percentile(end, 10):.2f}, "
                 f"{(end < 0.5).mean():.0%} of seating < half of today's avg")
     for f, (ax_, ay_), _ in rows:
         ax.annotate("", xy=(ay_, ax_), xytext=(f[1], f[0]),
                     arrowprops=dict(arrowstyle="->", color="cyan", lw=1.2))
     fig.colorbar(im, ax=ax, shrink=0.7, label="relative light (1 = today's avg)")
-    out = f"docs/aiming_H{height:g}_B{beam:g}.png"
+    tag = "_25" if NO_SPARES else ""
+    out = f"docs/aiming_H{height:g}_B{beam:g}{tag}.png"
     fig.savefig(out, dpi=110, bbox_inches="tight")
     print("  ->", out)
 
