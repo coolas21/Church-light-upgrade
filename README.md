@@ -346,10 +346,20 @@ the circuit closes.
    COB plate bolts to the finned heatsink, that joint needs the same
    treatment.
 
-## Info still needed
+## Info status
 
-- Which color is dead on each unit, and results of the swap test
-- COB dimensions and forward voltage per half
-- Ceiling mounting height and whether the yokes tilt
-- Typical service level (if they run ~50–70 %, the temp-controlled fan will be
-  near-silent almost all the time)
+Answered:
+- ~~Dead color per unit / swap test~~: no longer needed. Both halves of the
+  COB show burned dies, so every COB gets replaced.
+- ~~COB dimensions and forward voltage~~: 40 × 40 mm, 34 × 34 mm holes,
+  21 × 21 mm light area, Vf 30 V, 2.75 A total (common anode).
+- ~~Fan size~~: NMB 3110KL-04W-B75, 80 × 80 × 25 mm, 12 V.
+- ~~Typical service level~~: 100 %, all the time.
+
+Still open:
+- **Ceiling mounting height** (fixture to seat level) and **whether the yokes
+  tilt**. The coverage/aiming numbers are estimates until these are in.
+- **Front lens / bezel diameter**, and whether there is a gel-frame slot (to
+  size the frost).
+- Optional: blue and green clamped separately with both at 100 %, for the
+  exact per-color split.
