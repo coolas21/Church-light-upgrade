@@ -8,9 +8,12 @@ and are for budgeting only.
 > temperature before ordering the rest.
 
 ## Still to measure before ordering
-- [ ] Fan size: screw-hole spacing 71.5 mm = 80 mm fan, 82.5 mm = 92 mm fan
-- [ ] Fan thickness (normally 25 mm)
-- [ ] Old COB outline and screw-hole spacing (new COB is 46 × 40 mm)
+- [x] Fan: **NMB 3110KL-04W-B75, 80 × 80 × 25 mm, 12 V** ball bearing.
+      Sibling models in this series run ~3,250–4,000 rpm and ~39–46 CFM,
+      which is why it's loud.
+- [x] COB: **40 × 40 mm base, 34 × 34 mm screw holes, 21 × 21 mm light area**
+- [ ] COB voltage and current per channel at 100 % (see README, "Measurements")
+- [ ] COB pad count / polarity: 4 pads (two separate channels) or 3 (shared +)
 - [ ] Mounting height and beam angle (for the coverage model)
 - [ ] Front lens / bezel diameter, and whether there is a gel-frame slot (for frost)
 
@@ -18,12 +21,14 @@ and are for budgeting only.
 
 | # | Item | Spec / example | Qty | ~Each | ~Total |
 |---|---|---|---|---|---|
-| 1 | COB LED | YUJILEDS 400H, 100 W bi-color 3200 K / 5600 K, CRI 95+, 46 × 40 mm, 28–33 V, sold in 2-packs | 16 packs (32 COBs) | check site | — |
-| 2 | Fan (quiet) | Noctua NF-A8 PWM (80 mm) **or** NF-A9 PWM (92 mm) | 32 | $20–23 | ~$700 |
-| 2b | Fan (budget alt.) | Arctic P8 PWM PST (80 mm) or Arctic 92 mm PWM | 32 | $8–10 | ~$300 |
+| 1 | COB LED, **drop-in** | Bi-color (≈3000/3200 K + 5600/6000 K), 2 channels, **40 × 40 mm base, 34 × 34 mm M3 holes, ~20 × 20 mm LES**, CRI ≥ 90, per-channel Vf ≤ ~32 V at the measured current, same pad layout as the original | 32 | $10–25 | — |
+| 1b | COB LED, *alternative* | YUJILEDS 400H (CRI 95+, 3200/5600 K) is 46 × 40 mm with a larger light area. Needs new holes drilled and tapped in the heatsink, and must clear the reflector opening. Only if no good 40 × 40 part turns up | 16 packs | check site | — |
+| 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 32 | $20–23 | ~$700 |
+| 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 32 | ~$25 | ~$800 |
+| 2c | Fan (budget) | Arctic P8 PWM PST (80 mm) | 32 | $8–10 | ~$300 |
 | 3 | Fan temp controller | 12 V 4-wire PWM fan controller, 10 k NTC probe, adjustable start temp, non-zero minimum speed | 32 | $4–8 | ~$200 |
 | 4 | Thermal paste | Arctic MX-6 or Noctua NT-H2 (~0.5 g per COB) | 20 g total | — | ~$20 |
-| 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to 46 × 40 mm | enough for 32 | — | ~$40–60 |
+| 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to ~40 × 40 mm | enough for 32 | — | ~$40–60 |
 
 Rough rebuild total: **about $1,000–1,800 plus the COBs**, depending on the fan choice.
 

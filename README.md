@@ -275,9 +275,35 @@ same zone the same start address** so the console sees a few zones instead of
 30 fixtures. For example: front house, rear house, left side, right side,
 stage. Fixtures sharing an address simply mirror each other.
 
+## Measurements (before ordering COBs)
+
+Measured: COB **40 × 40 mm, holes 34 × 34 mm, light area 21 × 21 mm**. Fan is
+**NMB 3110KL-04W-B75 (80 × 80 × 25 mm, 12 V)**. The YUJILEDS 400H (46 × 40)
+is **not** a drop-in. Look for a 40 × 40 bi-color COB, or drill and tap new holes.
+
+Take these on 2–3 fixtures, one with both colors working if possible. Use a
+multimeter on **DC volts**. The power supply's input side carries mains
+voltage: probe only the low-voltage output terminals and the driver board.
+
+| # | Where to probe | Fixture setting | Why | Expect |
+|---|---|---|---|---|
+| 1 | PSU **V2 to G** | Both channels 100 % | 36 V rail under load | ~36 V |
+| 2 | PSU **V1 to G** | Any | 12 V rail for logic + fan | ~12 V |
+| 3 | **Across each COB channel** (its + and − at the board's output connector or the COB pads) | That channel at 100 % | **Forward voltage (Vf)**, the number to match when buying | ~28–33 V |
+| 4 | **Across each R130 resistor** (B and G channels) | That channel at 100 % | Current: **I = V ÷ 0.13** (e.g. 0.20 V → 1.5 A) | ~0.15–0.25 V |
+| 5 | Same as 3 and 4 | Both channels 100 % together | Check that the current doesn't drop when both run | same as alone |
+| 6 | Count the COB pads and read the +/− marks | Power off | 4 pads = separate channels, 3 = shared + | — |
+
+From these, buy a COB whose **Vf per channel at that current is ≤ ~32 V**
+(the 36 V supply needs headroom) and whose **rated current is ≥ the measured
+current**. Watts per channel ≈ step 3 × step 4 current.
+
+Tips: let it run 5 minutes before reading, because Vf drops a little as the
+COB warms. If a reading jumps around, the channel isn't at full 100 %; set it
+to full so the dimming PWM is off.
+
 ## Info still needed
 
-- Fan size and voltage label (read the sticker)
 - Which color is dead on each unit, and results of the swap test
 - COB dimensions and forward voltage per half
 - Ceiling mounting height and whether the yokes tilt
