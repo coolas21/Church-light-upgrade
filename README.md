@@ -91,6 +91,39 @@ and after — only commit after confirming it behaves.
 
 Roughly **$15–$50 per fixture**, vs ~$150–$300 each for a new quiet fixture.
 
+## Update: fixtures run at 100 % all the time (house / audience light)
+
+This changes some choices above:
+
+- **Fan:** a temp-controlled fan will sit near full speed at 100 % output, so
+  the noise win comes from the *fan itself*: a quality fluid-dynamic-bearing
+  fan (Noctua-class) is far quieter than a worn sleeve-bearing fan at the same
+  airflow. Use the largest diameter the mount allows (a bigger, slower fan is
+  quieter for the same airflow) and fit rubber anti-vibration mounts. Keep the
+  temp controller anyway, because it adapts to room temperature and ramps up
+  if a unit runs hot. Pick a static-pressure-rated model, since it blows into
+  heatsink fins.
+- **Current reduction (step 3):** this is still the best thing for long life
+  at constant 100 %, but it costs some light. With LED efficiency, ~13 % less
+  current gives roughly ~8–10 % less light. Skip it if light is the priority,
+  or combine it with a more efficient COB (below).
+- **More light without more heat:**
+  1. Fix every dead half first. A one-color fixture is giving ~50 % output.
+  2. Use **modern high-efficiency replacement COBs** (look for ≥130 lm/W,
+     CRI ≥ 90) at the same wattage. That gives more light from the same
+     heat, though no-name ratings are optimistic.
+  3. Clean the reflectors and front glass.
+  4. Do **not** fit a higher-wattage COB. The driver, heatsink and housing
+     are sized for 100 W.
+- **Dead spots are usually a coverage problem, not a brightness problem.**
+  Re-aim first, then add a *light* frost on fixtures aimed near dead spots:
+  - Light frost (Rosco 114 Hamburg Frost / Lee 410 Opal Frost class): about
+    10–20 % loss, softens hot spots and widens the beam.
+  - Heavy diffusion (Lee 216 full white class): loses 50 %+, so avoid it.
+  - Mount gel/diffusion in a gel frame at the front, not against the COB.
+  - Moving one or two repaired spare fixtures to the dead areas usually helps
+    more than any diffuser.
+
 ## Info still needed
 
 - Fan size and voltage label (read the sticker)
