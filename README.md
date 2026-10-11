@@ -12,7 +12,7 @@ details and the reasoning. Shopping list: `PARTS_LIST.md`.
 | COB | Replace all 25 (both halves have burned dies). Drop-in **40 × 40 mm, 34 × 34 mm M3 holes, ~20 mm LES**, bi-color, **common anode**, CRI ≥ 90, **Vf 28–32 V at 1.4 A**, rated **≥ 1.8 A per color**. A 200 W / 3 A-per-color COB is a good choice if it fits (see "200 W COB option"). The light output stays the same, but it runs cooler and lasts longer. Test 2 before ordering. |
 | Measured | 30 V, blue 1.4 A + green 1.4 A, so ~84 W of LED power per fixture |
 | Paste | Arctic MX-6 / Noctua NT-H2 (or PTM7950 pad), **full-coverage thin layer**, check the print on the first one |
-| Fan | **Noctua NF-A8 PWM** (80 × 25 mm) + 12 V PWM temp controller. Step up to NF-A8 iPPC-3000 if the heatsink goes over 60 °C after 1 h at 100 %. |
+| Fan | **Noctua NF-A8 PWM** (80 × 25 mm) + 12 V 4-wire PWM temp controller (50 k probe on the COB plate; Po 35 %, Tu 30 °C, Td 20 °C). Step up to NF-A8 iPPC-3000 if the heatsink goes over 60 °C after 1 h at 100 %. |
 | Frost | **Lee 410 Opal Frost** (~10–15 % loss) in a 2-plate frame on the front brackets (145 mm hole, holes 62 mm apart) |
 | Aiming | 18 ft mounting: tilt house fixtures **~20–25° outward, never toward the stage**; center line and stage stay straight down |
 | More fixtures | Not to start. Re-check with a lux app after phase 1. If needed, add 2–4 on a **new circuit**. |
@@ -183,13 +183,41 @@ Use the anti-vibration mounts that come with the fan. Because these run at
 full speed, step up to a higher-airflow model.
 
 ### Temperature controller
-- A 12 V "4-wire PWM fan temperature controller" module with a 10 k NTC probe
-  and an adjustable start temperature. It must drive the fan's **PWM pin**
-  (25 kHz), not chop the 12 V supply.
-- Power it from the PSU's V1 (12 V). Fix the probe to the heatsink next to the
-  COB with Kapton tape or thermal epoxy.
-- Set ~35 °C = slow, ~55 °C = full. Choose a module whose minimum speed is
-  not zero.
+**Chosen module:** 12 V 4-wire PWM controller (25 kHz, 5 V PWM, ≤ 1.2 A fan,
+50 k B3950 probe, settings Po / Tu / Td, forward/reverse mode). A good match:
+the NF-A8 draws well under 0.1 A, and the iPPC-3000 under 0.3 A.
+
+**Wiring**
+- **12 V in → PSU V1 (+) and G (−).** Check polarity before power-on.
+  Reversed, it blows the board's fuse "F".
+- Fan's 4-pin plug → the controller's fan header.
+- Mount the board **off the heatsink** (it's rated to 60 °C max), e.g. on the
+  housing near the PSU with a zip-tie mount. Keep it out of the hot exhaust.
+
+**Probe placement**
+- Put it on the **same aluminum plate the COB screws to, as close to the COB
+  as possible** (within ~10–15 mm of its edge). That's where the temperature
+  that matters is.
+- Black-bead probe: a dab of thermal paste under it, then hold it down with
+  **aluminum foil tape or Kapton tape**, or a drop of thermal epoxy.
+- Ring-terminal probe: put it **under one of the plate's screws** next to the
+  COB.
+- Keep the probe out of the fan's direct airflow, or it reads low. Route the
+  lead away from the COB's front side and the hot reflector.
+
+**Settings (change from the factory defaults)**
+| Setting | Factory | Set to | Why |
+|---|---|---|---|
+| Po (base speed) | 20 % | **35 %** | Always moving some air |
+| Tu (ramp start) | 30 °C | **30 °C** | Start ramping early |
+| Td (range) | 5 °C (full at 35 °C) | **20 °C, full at 50 °C** | Gradual ramp instead of jumping to full |
+| Shutdown | below Tu − 2 = 28 °C | if the menu allows, **disable it**; otherwise leave it | The fixture warms past 28 °C within minutes at 100 %, so it only matters at switch-on |
+| Signal mode | Forward | **Forward** | Correct for Noctua / standard PWM fans |
+
+Validate on the first fixture: 1 h at 100 % both colors. The heatsink next to
+the COB should be **< 60 °C**. If the fan is pinned at 100 % and still over,
+go to the NF-A8 iPPC-3000. If it's well under, raise Tu a few degrees for a
+quieter fan.
 
 ### Thermal interface
 - **Arctic MX-6** or **Noctua NT-H2** paste: non-curing, non-conductive, and

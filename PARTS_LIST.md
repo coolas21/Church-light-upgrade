@@ -28,7 +28,7 @@ and are for budgeting only.
 | 2 | Fan (quiet) | **Noctua NF-A8 PWM** (80 × 25 mm, 2200 rpm, 17.7 dB(A)) | 27 | $20–23 | ~$600 |
 | 2b | Fan (if NF-A8 runs too hot) | Noctua NF-A8 industrialPPC-3000 PWM: about the stock airflow, quieter in tone, louder than 2 | 27 | ~$25 | ~$675 |
 | 2c | Fan (budget) | Arctic P8 PWM PST (80 mm) | 27 | $8–10 | ~$250 |
-| 3 | Fan temp controller | 12 V 4-wire PWM fan controller, 10 k NTC probe, adjustable start temp, non-zero minimum speed | 27 | $4–8 | ~$160 |
+| 3 | Fan temp controller | **Chosen:** 12 V 4-wire PWM controller, 25 kHz, ≤ 1.2 A fan, 50 k B3950 probe included, Po/Tu/Td settings (see README "Temperature controller") | 27 | $4–8 | ~$160 |
 | 4 | Thermal paste | Arctic MX-6 or Noctua NT-H2 (~0.5 g per COB) | 20 g total | — | ~$20 |
 | 4b | Thermal pad (upgrade alt.) | Honeywell PTM7950 sheet, cut to ~40 × 40 mm | enough for 27 | — | ~$40–60 |
 
@@ -57,7 +57,7 @@ Notes:
 | Item | Use | Qty |
 |---|---|---|
 | 99 % isopropyl alcohol + lint-free wipes | Clean old paste off the COB seat | 1 bottle + 1 pack |
-| Kapton tape (or thermal epoxy) | Fix the NTC probe to the heatsink | 1 roll |
+| Aluminum foil tape or Kapton tape (or thermal epoxy) | Fix the probe to the COB plate next to the COB | 1 roll |
 | 22 AWG red/black wire | Run 12 V to the controller | 1 spool each |
 | Wago 221 lever connectors or solder + heat shrink | Splice the controller into 12 V | ~70 |
 | Fork/ferrule crimp terminals | Controller power at the PSU V1 / G screw terminals | ~70 |
