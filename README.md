@@ -265,53 +265,65 @@ How to aim in the field:
 
 ## DMX wiring (tools/dmx_route.py)
 
-**Recommended: an opto-isolated DMX splitter at the booth with three home
-runs** (left / center + stage / right, 9–12 fixtures each).
+### One chain or split?
 
-| | Option 1: splitter at booth | Option 2: splitter in ceiling |
-|---|---|---|
-| Cable (18 ft height, incl. slack) | ~665 ft (~765 with spare) | ~650 ft (~750 with spare) |
-| Power in ceiling | No | Yes, for the splitter |
-| Troubleshooting | All at the booth | Need a lift |
+**One chain through all 30 is fine here** and uses the least cable:
 
-The cable is about the same either way, so keep the electronics at the booth.
+- 30 fixtures is under the **32-device limit** for one DMX line. That only
+  holds if nothing else (stage pars, hazer, etc.) shares the line. Count
+  everything on it.
+- The XLR in/out board on the back of each fixture is **passive** (traces
+  straight from IN to OUT). A fixture that's off or failed still passes
+  data. Only a bad cable or connector breaks the chain after that point.
+- Length: ~400 ft along the ceiling plus drops and slack is about **600 ft**,
+  well under the ~1,000 ft limit.
 
-### Run order: a "snake," not a star (`docs/dmx_runs.png`)
+**When splitting is worth it:** if a cable fault going dark mid-service
+would be a real problem, or you add more fixtures to the line. A cheap
+2- or 3-output opto-splitter at the booth then limits a fault to one run.
 
-The shortest route is a **snake**: work outward through each zone in
-order, jumping only to the next-closest fixture. Electrically any order works
-as long as it's one unbroken chain (OUT → IN), so pick the order that uses the
-least cable and is easy to trace. The shortest orders (from the booth, along
-the ceiling structure):
+### Your current setup: two runs, no terminator
 
-| Run | Order (X, Y), 1 → last | ~Cable |
-|---|---|---|
-| A – left | (−16,−30) → (−3,−24) → (−7,−15) → (0,−9.5) → (11,−9.5) → (13,−17) → (3,−17) → (6,−25) → **(8,−36) T** | ~140 ft + drops |
-| B – center + stage | (−24,0) → (−7,−5) → (−7,5) → (0,0) → (8,0) → (16,0) → (24,0) → (24,−12) → (34,−12) → (32,0) → (34,12) → **(24,12) T** | ~130 ft + drops |
-| C – right | mirror of A: (−16,30) → (−3,24) → … → **(8,36) T** | ~140 ft + drops |
+1. **Find out how the two runs split.** If they come from two console outputs
+   or a splitter, that's fine: keep them and **add a terminator to the end of
+   each**. If they split from one output with a **Y-cable or a splice**,
+   that's not allowed in DMX (it causes reflections and flicker). Either
+   join them into one chain or put an opto-splitter where the Y is.
+2. **Add a 120 Ω terminator** in the DMX OUT of the **last fixture on every
+   run**. Without one, a long run can work most of the time but will flicker
+   or glitch at random, which is classic "ghost" behavior.
 
-T = 120 Ω terminator in the last fixture's DMX OUT.
+### Single-chain order (`docs/dmx_single_chain.png`)
 
-**No splitter?** One chain through all 30 is within the 32-device limit:
-run A, then cross to B, then C. It works, but one bad cable or fixture
-darkens everything after it. A 3-output opto-splitter at the booth is cheap
-insurance.
+From the booth: rear-center spare → right side → right-center → stage →
+down the middle → left side → **finish at stage-left (34, −12) with the
+terminator**. The order (X, Y):
+
+(−24,0) → (−16,30) → (8,36) → (6,25) → (−3,24) → (−7,15) → (−7,5) → (0,9.5)
+→ (3,17) → (13,17) → (11,9.5) → (24,12) → (34,12) → (32,0) → (24,0) → (16,0)
+→ (8,0) → (0,0) → (0,−9.5) → (−7,−5) → (−7,−15) → (−16,−30) → (8,−36)
+→ (6,−25) → (−3,−24) → (3,−17) → (13,−17) → (11,−9.5) → (24,−12)
+→ **(34,−12) T**
+
+If you keep two runs, split this order where it's convenient, for example
+right half + stage on one and middle + left on the other, and terminate both
+ends. A three-run split for a splitter is in `docs/dmx_runs.png`.
 
 At each fixture:
 - Leave a **service loop** big enough for full pan and tilt. Tie it to the yoke
   or hanging clamp so the cable never takes strain at the XLR.
-- Label every cable with run letter and number (e.g. A3 → A4) at both ends.
+- Label every cable with its chain position (e.g. 12 → 13) at both ends.
 - Before closing up the ceiling, check each run with a DMX tester or the
   console: bring up each fixture's address and watch the right light respond.
 
 Rules:
 - **Daisy-chain only** (OUT of one fixture to IN of the next). Never Y-split
-  a cable; splitting is what the splitter's outputs are for.
+  a cable.
 - **Use 110–120 Ω DMX cable** (e.g. Belden 9841 or a DMX/AES-rated cable),
   not mic cable. Mic cable causes flicker and dropouts on long runs.
 - **Terminate** the last fixture of each run with a 120 Ω XLR terminator.
-- Each run stays well under the 32-device and ~1,000 ft limits. The board's
-  SN75176B is a standard one-unit-load receiver.
+- Max **32 devices** and ~1,000 ft per run. The board's SN75176B is a
+  standard one-unit-load receiver.
 - **Run DMX at least a foot away from power,** and cross power at right angles.
 - Label both ends of every cable, and tag each fixture with its address.
 

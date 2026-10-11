@@ -67,10 +67,10 @@ Notes:
 
 | Item | Spec | Qty |
 |---|---|---|
-| Opto-isolated DMX splitter, 3+ outputs | at the booth | 1 |
-| DMX cable, 110–120 Ω (Belden 9841 or DMX-rated) | bulk + XLR connectors, or pre-made | ~800 ft |
-| 3-pin XLR male + female connectors (if bulk cable) | Neutrik NC3MXX / NC3FXX | ~70 of each |
-| 120 Ω DMX terminator, 3-pin XLR | end of each run | 3 (+1 spare) |
+| DMX cable | **already owned**. Check it's 110–120 Ω DMX cable, not mic cable | — |
+| **120 Ω DMX terminator, 3-pin XLR** | in the last fixture's DMX OUT on each run | **2** (current two runs) **+ 1 spare** |
+| 3-pin XLR male + female connectors | Neutrik NC3MXX / NC3FXX, for repairs and re-terminating damaged ends | ~5 of each |
+| *Optional:* opto-isolated DMX splitter, 2–3 outputs | only if keeping split runs from one console output, or for fault isolation | 0–1 |
 | Cable ties / J-hooks | support runs along the ceiling structure | as needed |
 
 ## Tools (one set)
