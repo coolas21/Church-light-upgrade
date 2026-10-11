@@ -13,9 +13,9 @@ and are for budgeting only.
       which is why it's loud.
 - [x] COB: **40 × 40 mm base, 34 × 34 mm screw holes, 21 × 21 mm light area**
 - [ ] COB current per channel at 100 % (see README: R130, DC clamp, or wall watt meter)
-- [x] COB: **Vf 30 V; 2.75 A total with both on (~1.4 A per channel, ~83 W)**; yellow + black joined = **common + (confirmed common anode)**; both halves have burned spots, so replace all
+- [x] COB: **Vf 30 V; blue 1.4 A + green 1.4 A (~42 W per color, ~84 W total)**; yellow + black joined = **common + (confirmed common anode)**; both halves have burned spots, so replace all
 - [ ] Mounting height and beam angle (for the coverage model)
-- [ ] Front lens / bezel diameter, and whether there is a gel-frame slot (for frost)
+- [x] Lens 140 mm; front brackets 8.5 in apart, 3.5 in long, 2 holes 62 mm apart each (for the frost frame)
 
 ## Per-fixture rebuild parts
 
@@ -36,9 +36,10 @@ Rough rebuild total: **about $1,000–1,800 plus the COBs**, depending on the fa
 
 | Item | Spec / example | Qty |
 |---|---|---|
-| Light frost filter | **Lee 410 Opal Frost** (lightest; aim for ~10–15 % loss) or Rosco 114 Hamburg Frost (a bit softer, a bit more loss). Use the polyester/heat-rated version, not craft-store film | **1 roll (48 in × 25 ft)**: ~160 circles up to 9 in, or ~8 sheets (21 × 24 in) at 4 per sheet |
-| Gel frame to fit the fixture's front slot, if it has one | measure slot width × height | 32 |
-| Otherwise: cut to fit **inside the front bezel** against the glass, held by the retaining ring | no tape on the lens | — |
+| Light frost filter | **Lee 410 Opal Frost** (lightest; aim for ~10–15 % loss) or Rosco 114 Hamburg Frost (a bit softer, a bit more loss). Use the polyester/heat-rated version, not craft-store film | **6.5 × 6.5 in per fixture**: **4 sheets (21 × 24 in)** at 9 per sheet = 36 pieces, or 1 roll (48 in × 25 ft) for years of replacements |
+| Frost frame plates | 0.040 in aluminum (or 1/16 in black ABS), ~9.5 × 7 in, 145 mm center hole, 2 holes per side 62 mm apart (see README "Frost frame") | 64 (2 per fixture) |
+| Frame screws / nuts | to suit the front-bracket threads | ~130 |
+| Flat-black paint | if using aluminum plates | 1–2 cans |
 | Circle cutter or template + sharp knife | clean, identical cuts | 1 |
 
 Notes:

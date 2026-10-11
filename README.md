@@ -304,11 +304,8 @@ to full so the dimming PWM is off.
 
 ### Results so far
 - **COB Vf = 30 V** (first fixture). That fits the ≤ 32 V target.
-- **Current:** 1.2 A on one channel. The clamp around the common + wires
-  (yellow + black) read **2.75 A total with both colors at 100 %**. So it's
-  roughly **1.2–1.55 A per channel (~1.4 A average)**, about **83 W of LED
-  power** in total (30 V × 2.75 A), and roughly 55–60 W of heat. Confirm the
-  split by clamping blue alone and green alone with both colors at 100 %.
+- **Current: blue 1.4 A and green 1.4 A** (both at 100 %), 2.75–2.8 A total.
+  That's **~42 W per color, ~84 W of LED power**, and roughly 55–60 W of heat.
 - **Yellow + black are soldered together on one tab: the common positive
   (confirmed).** The COB is **common anode**: common +, blue, green.
 - **Both color halves have black spots** (burned dies), so every COB gets
@@ -346,6 +343,27 @@ the circuit closes.
    COB plate bolts to the finned heatsink, that joint needs the same
    treatment.
 
+## Frost frame (uses the existing front brackets)
+
+The front has two curved accessory brackets (8.5 in apart, 3.5 in long, 2
+screw holes 62 mm apart on each). Make a simple sandwich frame that screws to
+them:
+
+- **Two plates** of 0.040 in (1 mm) aluminum, or 1/16 in black ABS/PETG.
+  The front glass of an LED fixture stays cool enough for plastic, but
+  aluminum is the safer choice for 30 years.
+  - Size: ~**9.5 × 7 in** (spans the brackets, covers the 140 mm / 5.5 in lens)
+  - Center cut-out: **145 mm (5.7 in) circle**, slightly bigger than the lens
+    so the frame doesn't shadow the beam
+  - Holes: **2 per side, 62 mm apart**, matching the brackets. Drill to suit
+    the bracket screws, and measure the exact side-to-side hole spacing on
+    the fixture first.
+- **Frost:** a ~**6.5 × 6.5 in** square sandwiched between the plates.
+- Paint or anodize the plates black (or use black ABS) so there's no visible
+  shine from the seats.
+- Make one, test it, then use it as the drilling template for the rest. Or
+  have a local sign/laser shop cut 64 plates from a drawing.
+
 ## Info status
 
 Answered:
@@ -355,11 +373,11 @@ Answered:
   21 × 21 mm light area, Vf 30 V, 2.75 A total (common anode).
 - ~~Fan size~~: NMB 3110KL-04W-B75, 80 × 80 × 25 mm, 12 V.
 - ~~Typical service level~~: 100 %, all the time.
+- ~~Per-color current~~: blue 1.4 A, green 1.4 A.
+- ~~Lens / frost mounting~~: 140 mm lens. Two front accessory brackets, 8.5 in
+  apart, each 3.5 in long with 2 screw holes 62 mm apart
+  (`docs/front_bracket.jpg`).
 
 Still open:
 - **Ceiling mounting height** (fixture to seat level) and **whether the yokes
   tilt**. The coverage/aiming numbers are estimates until these are in.
-- **Front lens / bezel diameter**, and whether there is a gel-frame slot (to
-  size the frost).
-- Optional: blue and green clamped separately with both at 100 %, for the
-  exact per-color split.
