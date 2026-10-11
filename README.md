@@ -197,11 +197,37 @@ full speed, step up to a higher-airflow model.
   tighten the screws a little at a time, alternating sides, and don't
   over-tighten.
 
+## Fixture plan and coverage model
+
+The hand-drawn plan (`docs/fixture_plan_sketch.jpg`) shows **25 hung
+fixtures**: 6 over the stage and 19 over the seating. The room is about 85 ft
+wide. Seating runs about 28 ft behind the X axis.
+
+`tools/coverage.py` models relative light at seat level from that plan. Since
+the real height and beam angle are unknown, it was run for 18 ft / 40° and
+24 ft / 60°:
+
+- All house fixtures sit within Y = ±25 ft and X = −7…+16 ft. That leaves
+  **a ~17 ft band along each side wall and a ~21 ft band at the rear with no
+  fixture above it**.
+- The front-center seats get 1.5–1.8× the average (the stage-front row at
+  X = 24 also spills there). Side walls and rear corners get 10–30 %.
+- Moving the ~5 spare fixtures to **(X, Y) = (8, ±36), (−16, ±30), (−24, 0)**
+  cuts the seating area below half the average from **34 % to 14 %**
+  (24 ft / 60°), or from 47 % to 26 % (18 ft / 40°).
+- Narrow beams make it worse. Tilting the outer ring (6, ±25), (−3, ±24),
+  (−7, ±15) outward 15–20° helps further.
+
+See `docs/coverage_H24_B60.png` and `docs/coverage_H18_B40.png`. Re-run with the
+real numbers: `python3 tools/coverage.py <height_ft> <beam_deg>`.
+
+Full shopping list: `PARTS_LIST.md`.
+
 ## Info still needed
 
 - Fan size and voltage label (read the sticker)
 - Which color is dead on each unit, and results of the swap test
 - COB dimensions and forward voltage per half
-- Ceiling mounting height, fixture spacing, and whether the yokes tilt
+- Ceiling mounting height and whether the yokes tilt
 - Typical service level (if they run ~50–70 %, the temp-controlled fan will be
   near-silent almost all the time)
