@@ -302,6 +302,43 @@ Tips: let it run 5 minutes before reading, because Vf drops a little as the
 COB warms. If a reading jumps around, the channel isn't at full 100 %; set it
 to full so the dimming PWM is off.
 
+### Results so far
+- **COB Vf = 30 V** (first fixture). That fits the ≤ 32 V target.
+- **4 solder tabs, wired in pairs** (blue/green and yellow/black), so the two
+  colors are **separate channels** with no shared positive.
+- **Old paste covered only part of the COB base** and had dried and crumbled.
+  The edges of the base were barely touching the plate. This is the main
+  reason the COBs overheated and burned out dies.
+
+### Three ways to get the current (pick one)
+1. **Across R130 (no tools to buy):** on the driver board, find the large
+   black resistors printed **R130** next to the **B** and **G** labels. With
+   that color at 100 %, touch the meter probes (DC volts) to the two metal
+   ends of the resistor. Amps = reading ÷ 0.13. For example, 0.195 V → 1.5 A.
+2. **DC clamp meter (easiest, ~$40–60):** it must say **DC A** (Hall effect,
+   e.g. UNI-T UT210E or Klein CL390). AC-only clamps won't read. Zero it, then
+   clamp around **one** wire of the channel at 100 %.
+3. **Plug-in watt meter at the wall (rough):** both colors at 100 %:
+   LED watts ≈ wall watts × 0.85, and amps per channel ≈ LED watts ÷ 2 ÷ Vf.
+   For example, 110 W at the wall → ~93 W → ~1.55 A per channel at 30 V.
+
+Avoid putting the multimeter in series on its amps jack. One slip with the
+probes in amps mode shorts the 36 V supply, and the LED driver can spike when
+the circuit closes.
+
+### Re-pasting: get full coverage
+1. Scrape off the old paste with a plastic card, then clean both faces with
+   99 % isopropyl until shiny.
+2. Check the plate is flat with a straightedge across the COB area. Sand any
+   burrs around the screw holes flat.
+3. Spread a **thin, even layer over the whole base** (a credit card works).
+   Don't just put a dot in the middle: this base is large and square.
+4. Tighten the 4 screws in an X pattern, a little at a time.
+5. **On the first fixture, take it back apart** and check the paste print
+   covers the whole base, then re-apply and tighten. If the
+   COB plate bolts to the finned heatsink, that joint needs the same
+   treatment.
+
 ## Info still needed
 
 - Which color is dead on each unit, and results of the swap test

@@ -12,8 +12,8 @@ and are for budgeting only.
       Sibling models in this series run ~3,250–4,000 rpm and ~39–46 CFM,
       which is why it's loud.
 - [x] COB: **40 × 40 mm base, 34 × 34 mm screw holes, 21 × 21 mm light area**
-- [ ] COB voltage and current per channel at 100 % (see README, "Measurements")
-- [ ] COB pad count / polarity: 4 pads (two separate channels) or 3 (shared +)
+- [ ] COB current per channel at 100 % (see README: R130, DC clamp, or wall watt meter)
+- [x] COB: 4 tabs, two separate channels; Vf measured 30 V on one fixture
 - [ ] Mounting height and beam angle (for the coverage model)
 - [ ] Front lens / bezel diameter, and whether there is a gel-frame slot (for frost)
 
@@ -81,6 +81,8 @@ Notes:
 | Thermocouple meter or IR thermometer | Heatsink-temperature test (target < 60 °C) |
 | Soldering iron, flux, solder wick | COB leads, connector repairs, caps if needed |
 | Phone lux-meter app | Before/after light map of the seating |
+| DC clamp meter (optional, e.g. UNI-T UT210E) | Easiest way to read LED current |
+| Plug-in watt meter (optional) | Rough LED power check at the wall |
 
 ## Relocating the ~5 spare fixtures (see coverage map)
 
