@@ -351,7 +351,7 @@ them:
 
 - **Two plates** of 0.040 in (1 mm) aluminum, or 1/16 in black ABS/PETG.
   The front glass of an LED fixture stays cool enough for plastic, but
-  aluminum is the safer choice for 30 years.
+  aluminum is the safer long-term choice.
   - Size: ~**9.5 × 7 in** (spans the brackets, covers the 140 mm / 5.5 in lens)
   - Center cut-out: **145 mm (5.7 in) circle**, slightly bigger than the lens
     so the frame doesn't shadow the beam
