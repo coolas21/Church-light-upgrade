@@ -103,7 +103,7 @@ def plot(ax, X, Y, E, mask, fixtures, added, title):
 
 
 if __name__ == "__main__":
-    height = float(sys.argv[1]) if len(sys.argv) > 1 else 22
+    height = float(sys.argv[1]) if len(sys.argv) > 1 else 15.5
     beam = float(sys.argv[2]) if len(sys.argv) > 2 else 50
 
     xs, ys = np.arange(-29, 42, 0.5), np.arange(-44, 44.5, 0.5)

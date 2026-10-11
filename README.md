@@ -203,23 +203,22 @@ The hand-drawn plan (`docs/fixture_plan_sketch.jpg`) shows **25 hung
 fixtures**: 6 over the stage and 19 over the seating. The room is about 85 ft
 wide. Seating runs about 28 ft behind the X axis.
 
-`tools/coverage.py` models relative light at seat level from that plan. Since
-the real height and beam angle are unknown, it was run for 18 ft / 40° and
-24 ft / 60°:
+`tools/coverage.py` models relative light at seat level from that plan.
+Fixtures hang **~18 ft above the floor, so ~15.5 ft above seat level**.
+Beam angle isn't measured, so it was run at 45° (bare) and 60° (with frost):
 
 - All house fixtures sit within Y = ±25 ft and X = −7…+16 ft. That leaves
   **a ~17 ft band along each side wall and a ~21 ft band at the rear with no
-  fixture above it**.
-- The front-center seats get 1.5–1.8× the average (the stage-front row at
+  fixture above it**. At only 15.5 ft, beams don't spread far enough to
+  reach those bands.
+- The front-center seats get well above the average (the stage-front row at
   X = 24 also spills there). Side walls and rear corners get 10–30 %.
 - Moving the ~5 spare fixtures to **(X, Y) = (8, ±36), (−16, ±30), (−24, 0)**
-  cuts the seating area below half the average from **34 % to 14 %**
-  (24 ft / 60°), or from 47 % to 26 % (18 ft / 40°).
-- Narrow beams make it worse. Tilting the outer ring (6, ±25), (−3, ±24),
-  (−7, ±15) outward 15–20° helps further.
+  cuts the seating below half the average from **43 % to 21 %** (60°), or
+  from 47 % to 27 % (45°).
 
-See `docs/coverage_H24_B60.png` and `docs/coverage_H18_B40.png`. Re-run with the
-real numbers: `python3 tools/coverage.py <height_ft> <beam_deg>`.
+See `docs/coverage_H15.5_B60.png` and `docs/coverage_H15.5_B45.png`. Re-run:
+`python3 tools/coverage.py <height_above_seats_ft> <beam_deg>`.
 
 Full shopping list: `PARTS_LIST.md`.
 
@@ -228,23 +227,41 @@ Full shopping list: `PARTS_LIST.md`.
 With all 30 hung (25 existing + 5 spares), the model's best result comes
 from one simple rule:
 
-- **Tilt every house fixture 15–20° away from the room's center line,**
+- **Tilt every house fixture ~20–25° away from the room's center line,**
   sideways or toward the rear, **never toward the stage** (that glares the
   platform). Leave the two center-line fixtures at (8, 0) and (16, 0), the
   stage fixtures, and the 5 relocated spares pointing straight down.
-- At 24 ft / 60°, the seating below half of today's average drops from
-  14 % (spares added, all straight down) to **3 %**. At 18 ft / 40° it drops
-  from 26 % to 15 %.
-- Map with arrows: `docs/aiming_H24_B60.png`, `docs/aiming_H18_B40.png`.
+- With frost (60°): seating below half of today's average drops from 21 %
+  (spares added, all straight down) to **10 %**. Without frost (45°) it drops
+  from 27 % to 13 %. Going past 25° only gains a little more (9 % at 30°) and
+  raises glare, so 25° is the limit.
+- Map with arrows: `docs/aiming_H15.5_B60.png` (`_B45` for no frost).
+
+| Fixture (X, Y) | Aim beam center at (X, Y) |
+|---|---|
+| (13, ±17) | (13, ±24) |
+| (11, ±9.5) | (11, ±16) |
+| (6, ±25) | (6, ±32) |
+| (3, ±17) | (3, ±24) |
+| (0, ±9.5) | (−1, ±16) |
+| (0, 0) | (−7, 0), toward the rear |
+| (−3, ±24) | (−4, ±31) |
+| (−7, ±15) | (−11, ±21) |
+| (−7, ±5) | (−13, ±8) |
 
 How to aim in the field:
-1. Aim offset on the floor = height × tan(tilt): at 24 ft, 18° is about 8 ft.
-   Mark the aim point on a seat and point the beam center at it.
-2. Aim with only that fixture on, both colors full, at night or with the house
-   dark. Use a phone-camera snapshot to find the hot spot.
-3. Lock the yoke bolts firmly and fit a safety cable on every fixture.
-4. Check glare from the back row and the platform. If a lens is in someone's
-   line of sight, back that fixture off 5°.
+1. Rule of thumb at this height: **the beam center lands ~7 ft outward** from
+   directly under the fixture (15.5 ft × tan 24°). Mark the aim seat with
+   tape and point the beam center at it.
+2. Aim with only that fixture on, both colors full, with the house dark. Use a
+   phone-camera snapshot to find the hot spot.
+3. Lock the pivot and tilt bolts firmly, and fit a safety cable on every
+   fixture.
+4. Check glare from the back rows and the platform. At 18 ft the fixtures
+   are close to people, so if a lens is in a normal line of sight (looking at
+   the stage or screens), back that fixture off 5°.
+5. Fit the frost frames **after** aiming, then do a quick lux-app walk of the
+   seating to confirm.
 
 ## DMX wiring (tools/dmx_route.py)
 
@@ -253,7 +270,7 @@ runs** (left / center + stage / right, 9–12 fixtures each).
 
 | | Option 1: splitter at booth | Option 2: splitter in ceiling |
 |---|---|---|
-| Cable (22 ft ceiling, incl. slack) | ~680 ft (~780 with spare) | ~660 ft (~750 with spare) |
+| Cable (18 ft height, incl. slack) | ~665 ft (~765 with spare) | ~650 ft (~750 with spare) |
 | Power in ceiling | No | Yes, for the splitter |
 | Troubleshooting | All at the booth | Need a lift |
 
@@ -374,10 +391,13 @@ Answered:
 - ~~Fan size~~: NMB 3110KL-04W-B75, 80 × 80 × 25 mm, 12 V.
 - ~~Typical service level~~: 100 %, all the time.
 - ~~Per-color current~~: blue 1.4 A, green 1.4 A.
+- ~~Mounting height / tilt~~: ~18 ft above the floor; yokes pivot and tilt.
 - ~~Lens / frost mounting~~: 140 mm lens. Two front accessory brackets, 8.5 in
   apart, each 3.5 in long with 2 screw holes 62 mm apart
   (`docs/front_bracket.jpg`).
 
 Still open:
-- **Ceiling mounting height** (fixture to seat level) and **whether the yokes
-  tilt**. The coverage/aiming numbers are estimates until these are in.
+- **Beam angle**, measured: point one fixture straight down, measure the
+  width of the bright pool on the floor where it falls to about half
+  brightness, then beam angle ≈ 2 × atan(width ÷ 2 ÷ 18 ft). Only needed to
+  fine-tune the aiming.

@@ -19,8 +19,8 @@ import numpy as np
 import coverage as c
 
 CENTRE = (2, 0)          # roughly the middle of the seating
-OFFSETS = [0, 2, 4, 6, 8, 10]
-MAX_TILT = 20            # degrees from straight down
+OFFSETS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 10]
+MAX_TILT = 25            # degrees from straight down
 STAGE_X = 20             # fixtures at/over the stage are left alone
 
 
@@ -41,7 +41,7 @@ def aim_point(f, off):
 
 
 def main():
-    height = float(sys.argv[1]) if len(sys.argv) > 1 else 22
+    height = float(sys.argv[1]) if len(sys.argv) > 1 else 15.5
     beam = float(sys.argv[2]) if len(sys.argv) > 2 else 50
     m = math.log(0.5) / math.log(math.cos(math.radians(beam / 2)))
 

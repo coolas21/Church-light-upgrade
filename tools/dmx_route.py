@@ -49,7 +49,7 @@ def route(start, pts):
 
 
 def main():
-    height = float(sys.argv[1]) if len(sys.argv) > 1 else 22
+    height = float(sys.argv[1]) if len(sys.argv) > 1 else 18
     fixtures = c.FIXTURES + c.SUGGESTED
     print(f"{len(fixtures)} fixtures, ceiling ~{height:g} ft\n")
 
