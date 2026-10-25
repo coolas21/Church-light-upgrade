@@ -85,9 +85,48 @@ current ~13 %. Do this on one test unit first and measure the current before
 and after — only commit after confirming it behaves.
 
 ### 4. Health checks while it's open
-- Look for bulging/leaking electrolytic capacitors on both boards (board is
-  dated 2011, PSU 2016). Replace any suspect ones with 105 °C low-ESR parts.
 - Reflow any cracked solder joints on the XLR and connector boards.
+- Capacitors: see "Capacitor plan" below.
+
+### Capacitor plan
+**Hours so far:** ~30 h/week × 52 × 10 years ≈ **15,000 h**. A 105 °C
+electrolytic is typically rated 2,000–5,000 h *at 105 °C*, and its life
+roughly doubles for every 10 °C cooler. At a realistic 55–65 °C inside the
+fixture that's ~40,000+ h, so most caps are **only about halfway through
+their life**. The exceptions are the ones that run hot or carry heavy ripple
+current. Those wear out first.
+
+**Replace these first (in order):**
+| # | Where | Why it fails first |
+|---|---|---|
+| 1 | **PSU output caps**: the cluster of 6 next to the V1/G/G/V2 terminals (4 larger on 36 V, 2 smaller green on 12 V) | Highest ripple current, next to the hot output diodes and inductor. The #1 failure point on switching supplies (symptoms: flicker, hum, driver resets) |
+| 2 | **PSU controller cap**: small cap **C4** next to IC1 (top center, near the C13/C14 labels) | Powers the PWM chip. When it dries out the supply won't start, or starts and stops. Cheap and quick |
+| 3 | **Driver board input caps**: the large cap beside the green 3-pin power terminal, plus the two at top-left | They smooth the 36 V for the two buck LED drivers. High ripple |
+| 4 | **Driver board 5 V regulator caps**: the small caps around the LM2576 / "101" inductor (bottom right) | Power the MCU and DMX chip. Bad ones cause DMX glitches or random resets |
+
+**Leave alone unless they test bad:** the two big **400 V bulk caps** on the
+PSU mains side (C1/C2, "QC PASS"). They run cool and rarely fail, they're
+the priciest, and they hold a dangerous charge.
+
+**How to do it efficiently (25 fixtures):**
+1. On one fixture, **write down every cap**: µF, voltage, diameter × height,
+   and lead spacing. That's the shopping list for all 25.
+2. Replacements: same µF, **same or higher voltage** (63 V on the 36 V rail
+   is a good upgrade), **105 °C, low-ESR, long-life**, same size. Good
+   series: Panasonic FR/FM, Nichicon HE/PW, Rubycon ZLH/ZLJ, Chemi-Con KZE.
+   Buy from Digi-Key or Mouser, not marketplace sellers (fake caps are
+   common).
+3. Recap groups **1–4 on every fixture**. It's about 12–15 caps and roughly
+   $5–10 per fixture, a cheap way to get another 10 years.
+4. Optional: a cheap **ESR / component tester** (~$20, "LCR-T4" type) to test
+   caps you pull and spot-check the bulk caps. Replace any with high ESR or
+   capacitance well below the rating.
+5. Check visually too: domed or split tops, brown crust at the base, a cap
+   leaning, or browned PCB around it.
+
+**Safety:** unplug and wait **5+ minutes** before touching the PSU. Check the
+two big bulk caps read **< 5 V DC** with a meter before working near them.
+Note **polarity** (the stripe = −) before removing each cap.
 
 ### 5. Validate (do on the first 1–2 units before doing all 25)
 - Both channels at 100 % for 60 minutes in its normal hanging orientation.

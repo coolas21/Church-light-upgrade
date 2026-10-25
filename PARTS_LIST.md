@@ -102,6 +102,7 @@ Not needed to start. See README "Do we need more fixtures?" and "Power".
 
 | Item | When |
 |---|---|
-| 105 °C low-ESR electrolytic capacitors (match µF / V) | Any bulging or leaking caps on the PSU or driver board |
+| **Recap kit per fixture**: 105 °C low-ESR long-life electrolytics (Panasonic FR/FM, Nichicon HE/PW, Rubycon ZLH/ZLJ). Same µF, same or higher V (63 V on the 36 V rail), same size. List the values from one fixture first | **Recommended for all 25**: PSU output caps, PSU controller cap C4, driver input caps, driver 5 V regulator caps (README "Capacitor plan"). ~12–15 caps, ~$5–10 per fixture, from Digi-Key or Mouser |
+| ESR / component tester ("LCR-T4" type, ~$20) | Test pulled caps and spot-check the 400 V bulk caps |
 | 0.15 Ω 2512 1 W resistor (R150) | Only if you choose to lower the LED current. Costs ~8–10 % of the light |
 | 0.11 Ω 2512 1 W resistor (R110), 2 per fixture | Only for the optional ~+15 % boost with 200 W COBs (README "200 W COB option"). Test one fixture first |
