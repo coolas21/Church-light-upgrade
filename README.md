@@ -116,8 +116,11 @@ the priciest, and they hold a dangerous charge.
    series: Panasonic FR/FM, Nichicon HE/PW, Rubycon ZLH/ZLJ, Chemi-Con KZE.
    Buy from Digi-Key or Mouser, not marketplace sellers (fake caps are
    common).
-3. Recap groups **1–4 on every fixture**. It's about 12–15 caps and roughly
-   $5–10 per fixture, a cheap way to get another 10 years.
+3. **Decided plan:** replace **group 1 (the 6 PSU output caps) on every
+   fixture**, and add **C4** (~$0.50, same order). Groups 3–4 only if a cap is
+   bulging or leaking, tests bad, or the fixture flickers or resets. Note that
+   caps can dry out without bulging, so test the ones you pull to see how the
+   rest are aging.
 4. Optional: a cheap **ESR / component tester** (~$20, "LCR-T4" type) to test
    caps you pull and spot-check the bulk caps. Replace any with high ESR or
    capacitance well below the rating.
