@@ -127,6 +127,25 @@ the priciest, and they hold a dangerous charge.
 5. Check visually too: domed or split tops, brown crust at the base, a cap
    leaning, or browned PCB around it.
 
+### PSU heatsink transistors (3 parts under spring clips)
+The pads between these three parts and the heatsink are **electrical
+insulators as well as thermal pads**. The top one is the main switching
+transistor on the mains side, with **hundreds of volts on its tab**. The
+bottom two are the output rectifiers.
+- Replace each pad with a **silicone insulating thermal pad of the same
+  package size**: TO-220 (~10 mm wide body) or TO-247 / TO-3P (~15–16 mm).
+  Measure the body width. Good pads: Bergquist Sil-Pad 400/900S or generic
+  grey silicone insulator pads. **Never just paste.** Paste alone shorts the
+  tab to the heatsink.
+- If a part's tab is fully covered in plastic (a "FullPAK", no metal showing on
+  the back), it's already insulated and a thin layer of paste is fine.
+- Clean the heatsink and the part's back with isopropyl, center the pad so it
+  overhangs the tab on all sides, then re-seat the clip.
+- **Check before powering up:** meter on resistance or continuity, one probe on
+  the heatsink and the other on each leg of each part. It must read **open
+  (OL)** on every leg. Any beep or low reading means a pad is wrong: fix
+  before plugging in.
+
 **Safety:** unplug and wait **5+ minutes** before touching the PSU. Check the
 two big bulk caps read **< 5 V DC** with a meter before working near them.
 Note **polarity** (the stripe = −) before removing each cap.
