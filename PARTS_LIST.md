@@ -103,7 +103,7 @@ Not needed to start. See README "Do we need more fixtures?" and "Power".
 | Item | When |
 |---|---|
 | **Recap kit per fixture**: 105 °C low-ESR long-life electrolytics (Panasonic FR/FM, Nichicon HE/PW, Rubycon ZLH/ZLJ). Same µF, same or higher V (63 V on the 36 V rail), same size. List the values from one fixture first | **All 25: the 6 PSU output caps + C4** (~7 caps, ~$3–6 per fixture): 110 × Rubycon 50ZLJ470M10X20 (470 µF 50 V), 55 × Panasonic EEU-FR1E102 (1000 µF 25 V), 30 × 33 µF 50 V 6.3 × 11 low-ESR (see `CAP_LIST.md`). Driver board caps only if bulging, leaking, testing bad, or causing flicker/resets (README "Capacitor plan"). Buy from Digi-Key or Mouser |
-| Silicone insulating thermal pads (Bergquist Sil-Pad 400/900S or generic grey), TO-220 or TO-247/TO-3P to match | PSU heatsink transistors: **3 per fixture**, ~80 total. Measure body width to pick the size. Insulators: never replace with paste alone |
+| Silicone insulating thermal pads (Bergquist Sil-Pad 400/900S or generic grey), TO-220 or TO-247/TO-3P to match | **Not needed**: the PSU transistors are fully insulated (FullPAK) parts, so the same thermal paste works. Only buy pads if a fixture turns out to have metal-backed parts |
 | ESR / component tester ("LCR-T4" type, ~$20) | Test pulled caps and spot-check the 400 V bulk caps |
 | 0.15 Ω 2512 1 W resistor (R150) | Only if you choose to lower the LED current. Costs ~8–10 % of the light |
 | 0.11 Ω 2512 1 W resistor (R110), 2 per fixture | Only for the optional ~+15 % boost with 200 W COBs (README "200 W COB option"). Test one fixture first |

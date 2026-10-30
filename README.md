@@ -139,6 +139,11 @@ bottom two are the output rectifiers.
   tab to the heatsink.
 - If a part's tab is fully covered in plastic (a "FullPAK", no metal showing on
   the back), it's already insulated and a thin layer of paste is fine.
+  **Checked on these PSUs: all three are fully black (FullPAK) on the back.**
+  Make sure what you saw is the part itself and not a black pad stuck to it:
+  the back should be smooth, molded plastic with no metal and no peelable
+  layer. If so, use a thin layer of the same non-conductive paste (MX-6 /
+  NT-H2) and skip the pads. Still do the continuity check below.
 - Clean the heatsink and the part's back with isopropyl, center the pad so it
   overhangs the tab on all sides, then re-seat the clip.
 - **Check before powering up:** meter on resistance or continuity, one probe on
