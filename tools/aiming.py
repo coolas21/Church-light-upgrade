@@ -44,7 +44,7 @@ def aim_point(f, off):
 def main():
     args = [a for a in sys.argv[1:] if not a.startswith("--")]
     height = float(args[0]) if args else 15.5
-    beam = float(args[1]) if len(args) > 1 else 50
+    beam = float(args[1]) if len(args) > 1 else 90
     m = math.log(0.5) / math.log(math.cos(math.radians(beam / 2)))
 
     xs, ys = np.arange(-29, 42, 0.5), np.arange(-44, 44.5, 0.5)

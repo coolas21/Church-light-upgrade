@@ -15,6 +15,7 @@ details and the reasoning. Shopping list: `PARTS_LIST.md`.
 | Fan | **Noctua NF-A8 PWM** (80 × 25 mm) + 12 V 4-wire PWM temp controller (50 k probe on the COB plate; Po 35 %, Tu 30 °C, Td 20 °C). Step up to NF-A8 iPPC-3000 if the heatsink goes over 60 °C after 1 h at 100 %. |
 | Frost | **Lee 410 Opal Frost** (~10–15 % loss) in a 2-plate frame on the front brackets (145 mm hole, holes 62 mm apart) |
 | Aiming | 18 ft mounting: tilt house fixtures **~20–25° outward, never toward the stage**; center line and stage stay straight down |
+| Baseline | Measured (`BASELINE.md`): ~200–290 lux under the grid, **37–65 lux at the side walls and rear corners**. Fits the model with an effective **~90° beam**. |
 | More fixtures | Not to start. Re-check with a lux app after phase 1. If needed, add 2–4 on a **new circuit**. |
 | Power | ~100–105 W and ~0.9–1.4 A per fixture at 120 V, so **25 ≈ 22–34 A**, more than one 20 A circuit. **Measure one fixture with a watt meter**, and have an electrician confirm the circuits behind the switch before all 25 run at full again. |
 | DMX | **One daisy chain** (25 < 32 devices, ~475 ft) with a **120 Ω terminator** at the end. If keeping your two runs, terminate both, and never Y-split. |
@@ -335,6 +336,10 @@ The model's best result for the **25 hung fixtures** comes from one rule:
   little and raises glare.
 - What's left dark is the outer ~8–10 ft along each side wall and the rear
   ~10 ft. Only added fixtures fix that (see below).
+- **Update from the baseline readings (`BASELINE.md`):** the real beam is
+  wider (~90°), so aiming raises the dark edges from 37–65 lux to roughly
+  60–80 lux, and the center drops from ~250–290 to ~200 lux (still plenty).
+  Getting the edges to ~100 lux needs added fixtures.
 - Map with arrows: `docs/aiming_H15.5_B60_25.png`. With 5 added fixtures:
   `docs/aiming_H15.5_B60.png` (10 % below half).
 
@@ -630,7 +635,6 @@ Answered:
   (`docs/front_bracket.jpg`).
 
 Still open:
-- **Beam angle**, measured: point one fixture straight down, measure the
-  width of the bright pool on the floor where it falls to about half
-  brightness, then beam angle ≈ 2 × atan(width ÷ 2 ÷ 18 ft). Only needed to
-  fine-tune the aiming.
+- ~~Beam angle~~: estimated **~90° effective** by fitting the baseline lux
+  readings (`BASELINE.md`).
+- After the rebuild: repeat the lux readings at the same spots to compare.
