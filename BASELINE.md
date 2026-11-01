@@ -1,6 +1,6 @@
 # Baseline Light Readings (before repairs)
 
-Phone light-meter readings (lux) taken around the room, written on the plan
+Phone light-meter readings (**lux, confirmed**) taken around the room, written on the plan
 (`docs/baseline_lux_sketch.jpg`). Positions are estimated from the sketch, in
 the same X/Y feet as the fixture plan. Many fixtures currently have one
 dead color, so this is the "before" picture.
