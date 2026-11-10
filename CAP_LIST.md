@@ -7,7 +7,7 @@ Use this list to order for all 25 (+ a few spares).
 |---|---|---|---|---|---|---|---|---|
 | PSU C5, C6, C9, C10 (36 V output) | 470 | 50 V | 105 °C | 10 × 20 (measured ~9) | 5.0 mm ✓ | 4 | **110** | **Rubycon 50ZLJ470M10X20** (10,000 h). Keep 50 V; a 63 V part is usually too big to fit |
 | PSU C7, C8 (12 V output) | 1000 | 25 V | 105 °C | 10 × 20 | 5.0 mm ✓ | 2 | **55** | **Panasonic EEU-FR1E102** (10,000 h) |
-| PSU C4 (controller supply) | 33 | 50 V | 105 °C | 6.3 × 11 (measured ~6) | 2.5 mm ✓ | 1 | **30** | **Cornell Dubilier / Illinois 336KXM050M** (33 µF 50 V 105 °C, 11 mm tall, 2,000 h). Acceptable: at C4's ~60–70 °C that's roughly 20–45k h, or 15+ years at 30 h/week. Check that it's 6.3 mm diameter with 2.5 mm spacing, and that it's in stock (DigiKey has listed a long lead time). A 5,000–10,000 h part (Panasonic FR, Nichicon HE/PW, Rubycon ZLJ) is a slightly better choice if one is in stock |
+| PSU C4 (controller supply) | 33 | 50 V | 105 °C | 6.3 × 11 (measured ~6) | 2.5 mm ✓ | 1 | **30** | **Cornell Dubilier / Illinois 336KXM050M** (33 µF 50 V 105 °C, 11 mm tall). **Chosen.** Mouser lists **5,000 h**, matching the KXM series datasheet (one DigiKey listing says 2,000 h). At C4's temperature that's decades. Confirm 6.3 mm diameter and 2.5 mm spacing on the order page |
 
 Notes:
 - "9 mm" and "6 mm" readings are almost certainly the standard **10 mm** and
